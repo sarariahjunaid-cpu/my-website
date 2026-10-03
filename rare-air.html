@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rare Air — Ladakh</title>
+<meta name="description" content="Rare Air: slow travel to Ladakh. Nine days at four thousand metres.">
+<meta name="theme-color" content="#241A12">
+<style>
+:root{
+  --paper:#EDE4D4; --ink:#241A12; --ochre:#B08B5C; --umber:#6B4A32; --cobalt:#2E5C8A;
+  --display:"Cormorant Garamond","Cormorant",Garamond,"Times New Roman",serif;
+  --ui:"Archivo",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --track:4100px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink)}
+body{background:var(--ink);color:var(--paper);font-family:var(--ui);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* The tall track. Scrollable distance = --track (track height minus one viewport). */
+.track{position:relative;height:calc(var(--track) + 100vh);height:calc(var(--track) + 100svh)}
+.stage{
+  position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;isolation:isolate;
+  background:
+    radial-gradient(120% 80% at 50% 0%,#3d6a97 0%,var(--cobalt) 35%,var(--umber) 100%);
+  /* Driven by JS: beat progress (0..1) and pointer (-1..1). Layers only read these. */
+  --b0:0;--b1:0;--b2:0;--b3:0;--b4in:0;--b4out:0;--c1:0;--c2:0;--px:0;--py:0;
+  --scroll:0;
+}
+
+.layer{position:absolute;display:block;will-change:transform,opacity,filter;user-select:none;-webkit-user-drag:none;pointer-events:none}
+.fill{inset:0;width:100%;height:100%;object-fit:cover}
+
+/* z0 sky */
+.sky{z-index:0;
+  transform:translate3d(calc(var(--px)*-6px),calc(var(--py)*-4px),0) scale(1.05)}
+
+/* z1 ridge */
+.ridge{z-index:1;left:-5%;width:110%;bottom:34%;height:auto;
+  mix-blend-mode:screen;
+  opacity:calc(.58 + .20*var(--b0));
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 38%);
+          mask-image:linear-gradient(to bottom,transparent 0%,#000 38%);
+  transform-origin:50% 100%;
+  transform:translate3d(calc(var(--px)*-14px),calc(var(--py)*-6px + 54px*var(--b0)),0)
+            scale(calc((1 - .08*var(--b0)) * (1 + .55*var(--b2))));
+  filter:blur(calc(var(--b2)*2.5px))}
+
+/* z2 hills: one uniform scale from the bottom edge, never scaleY */
+.hills{z-index:2;left:-30.5%;width:161%;height:auto;bottom:0;
+  transform-origin:50% 100%;
+  transform:translate3d(calc(var(--px)*-26px),calc(var(--py)*-8px),0)
+            scale(calc((1 - .30*var(--b0)) * (1 + 1.1*var(--b2))));
+  filter:blur(calc(var(--b2)*3.5px))}
+
+/* z3 monastery, flush to bottom, hinged at its base */
+.monastery{z-index:3;left:50%;bottom:0;margin:0;width:min(46vw,760px);height:auto;
+  transform-origin:50% 100%;
+  transform:translate3d(-50%,0,0)
+            translate3d(calc(var(--px)*-38px),calc(var(--py)*-10px),0)
+            scale(calc(1 + .15*var(--b0) + .45*var(--b2)));
+  opacity:calc(1 - var(--b2))}
+
+/* z5 courtyard */
+.court{z-index:5;inset:0;overflow:hidden;
+  opacity:var(--b4in);
+  transform:translate3d(calc(var(--px)*-18px),calc(var(--py)*-8px),0) scale(calc(1.16 - .16*var(--b4in)));
+  filter:blur(calc(var(--b4out)*11px)) brightness(calc(1 - .38*var(--b4out)))}
+.court img,.court video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.court video{opacity:0}
+.court video.ready{opacity:1}
+.vignette{z-index:5;inset:0;
+  background:radial-gradient(ellipse at 50% 50%,transparent 24%,rgba(36,26,18,.78) 100%);
+  opacity:var(--b4out)}
+
+/* z6 gate halves */
+.gate{z-index:6;inset:0;width:100%;height:100%;object-fit:cover;opacity:var(--b2)}
+.gate.left{transform-origin:26% 50%;
+  transform:translate3d(calc(-56vw*var(--b3) + var(--px)*-44px),calc(16vh*(1 - var(--b2))),0)
+            scale(calc(.52 + .48*var(--b2) + .9*var(--b3)))}
+.gate.right{transform-origin:74% 50%;
+  transform:translate3d(calc(56vw*var(--b3) + var(--px)*-44px),calc(16vh*(1 - var(--b2))),0)
+            scale(calc(.52 + .48*var(--b2) + .9*var(--b3)))}
+
+/* Type */
+.hero-type{position:absolute;z-index:7;inset:0;pointer-events:none}
+.brand{position:absolute;top:max(22px,env(safe-area-inset-top));left:clamp(18px,4vw,48px);
+  font:500 12px/1 var(--ui);letter-spacing:.34em;text-transform:uppercase;color:var(--paper);
+  text-shadow:0 1px 14px rgba(36,26,18,.55);z-index:8}
+.title{position:absolute;left:0;right:0;top:34%;transform:translateY(calc(-230px*var(--b1)));
+  opacity:calc(1 - var(--b1));
+  text-align:center;font-family:var(--display);font-weight:300;
+  font-size:clamp(68px,17vw,260px);line-height:.9;
+  letter-spacing:calc(.16em + .05em*var(--b1));
+  padding-left:calc(.16em + .05em*var(--b1)); /* optically re-centres tracked text */
+  color:var(--paper);text-shadow:0 2px 40px rgba(36,26,18,.38);white-space:nowrap}
+.lede{position:absolute;left:50%;bottom:calc(8vh + env(safe-area-inset-bottom));
+  width:min(560px,86vw);text-align:center;
+  transform:translate(-50%,calc(80px*var(--b1)));opacity:calc(1 - var(--b1));
+  padding:34px 28px;
+  background:radial-gradient(ellipse at 50% 50%,rgba(36,26,18,.62) 0%,rgba(36,26,18,.34) 55%,transparent 78%);
+  font-size:clamp(15px,1.5vw,18px);line-height:1.6;color:var(--paper);letter-spacing:.01em}
+.lede b{display:block;font:500 11px/1 var(--ui);letter-spacing:.3em;text-transform:uppercase;color:var(--ochre);margin-bottom:14px}
+
+/* Captions */
+.cap{position:absolute;z-index:8;max-width:min(380px,calc(100vw - 40px));
+  padding:22px 24px;background:rgba(36,26,18,.58);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  border-left:2px solid var(--ochre);color:var(--paper);pointer-events:none}
+.cap small{display:block;font:500 10.5px/1 var(--ui);letter-spacing:.3em;text-transform:uppercase;color:var(--ochre);margin-bottom:12px}
+.cap p{font-family:var(--display);font-size:clamp(20px,2.2vw,28px);line-height:1.25;font-weight:400}
+.cap.one{left:clamp(20px,6vw,90px);bottom:calc(12vh + env(safe-area-inset-bottom));
+  opacity:var(--c1);transform:translateY(calc(18px*(1 - var(--c1))))}
+.cap.two{right:clamp(20px,6vw,90px);top:18vh;
+  opacity:var(--c2);transform:translateY(calc(18px*(1 - var(--c2))))}
+
+/* Beat navigation */
+.beats{position:absolute;z-index:9;right:clamp(14px,3vw,40px);bottom:calc(18px + env(safe-area-inset-bottom));
+  display:flex;gap:6px}
+.beats button{all:unset;box-sizing:border-box;cursor:pointer;min-width:34px;height:34px;display:grid;place-items:center;
+  font:500 12px/1 var(--ui);letter-spacing:.08em;color:var(--paper);background:rgba(36,26,18,.5);
+  border:1px solid rgba(237,228,212,.28);transition:background .2s,color .2s}
+.beats button:hover,.beats button:focus-visible{background:var(--paper);color:var(--ink)}
+.beats button:focus-visible{outline:2px solid var(--ochre);outline-offset:2px}
+.hint{position:absolute;z-index:8;left:50%;bottom:calc(10px + env(safe-area-inset-bottom));transform:translateX(-50%);
+  font:500 10px/1 var(--ui);letter-spacing:.3em;text-transform:uppercase;color:rgba(237,228,212,.75);
+  opacity:calc(1 - var(--b0)*4)}
+
+@media (max-width:640px){
+  .title{top:30%;letter-spacing:calc(.1em + .04em*var(--b1));padding-left:calc(.1em + .04em*var(--b1))}
+  .cap.two{top:auto;bottom:calc(12vh + env(safe-area-inset-bottom));right:auto;left:20px}
+  .hint{display:none}
+}
+@media (prefers-reduced-motion:reduce){.beats button{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="track" id="track">
+  <div class="stage" id="stage">
+
+    <img class="layer fill sky"       src="https://thinkingods.com/downloads/ladakh/01-sky.webp"       alt="" decoding="async" fetchpriority="high">
+    <img class="layer ridge"          src="https://thinkingods.com/downloads/ladakh/02-ridge.webp"     alt="" decoding="async">
+    <img class="layer hills"          src="https://thinkingods.com/downloads/ladakh/03-hills.webp"     alt="" decoding="async">
+    <img class="layer monastery"      src="https://thinkingods.com/downloads/ladakh/04-monastery.webp" alt="" decoding="async">
+
+    <div class="layer court" id="court" aria-hidden="true">
+      <img src="https://thinkingods.com/downloads/ladakh/08-courtyard-still.webp" alt="" decoding="async">
+      <video id="courtVideo" muted playsinline preload="metadata" tabindex="-1">
+        <source src="https://thinkingods.com/downloads/ladakh-courtyard.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="layer vignette" aria-hidden="true"></div>
+
+    <img class="layer gate left"  src="https://thinkingods.com/downloads/ladakh/05-gate-left.webp"  alt="" decoding="async">
+    <img class="layer gate right" src="https://thinkingods.com/downloads/ladakh/06-gate-right.webp" alt="" decoding="async">
+
+    <div class="hero-type">
+      <div class="brand">Rare Air</div>
+      <h1 class="title">Ladakh</h1>
+      <p class="lede"><b>Slow travel · Rare Air</b>Nine days at four thousand metres. Thin air, long light, and a road that ends where the mountains start.</p>
+    </div>
+
+    <aside class="cap one" aria-label="Caption">
+      <small>The gate</small>
+      <p>Nothing here is hurried. The air is thin, so the days run long.</p>
+    </aside>
+    <aside class="cap two" aria-label="Caption">
+      <small>The courtyard</small>
+      <p>Arrive on foot, the way the road intended.</p>
+    </aside>
+
+    <div class="hint" aria-hidden="true">Scroll</div>
+    <nav class="beats" aria-label="Jump to beat">
+      <button type="button" data-beat="0" aria-label="Beat 1: the world settles (key 1)">1</button>
+      <button type="button" data-beat="1" aria-label="Beat 2: the type leaves (key 2)">2</button>
+      <button type="button" data-beat="2" aria-label="Beat 3: the gate rises (key 3)">3</button>
+      <button type="button" data-beat="3" aria-label="Beat 4: the gate parts (key 4)">4</button>
+      <button type="button" data-beat="4" aria-label="Beat 5: the courtyard (key 5)">5</button>
+      <button type="button" data-beat="5" aria-label="Beat 6: defocus (key 6)">6</button>
+    </nav>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var TRACK = 4100, LERP = 0.14, PTR_LERP = 0.08;
+  var stage = document.getElementById("stage");
+  var video = document.getElementById("courtVideo");
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  // Scroll targets for keys 1..6
+  var BEATS = [0, 780, 1620, 2350, 2850, 3960];
+
+  function clamp(v,a,b){return v<a?a:v>b?b:v}
+  function smooth(t){t=clamp(t,0,1);return t*t*(3-2*t)}
+  function range(s,a,b){return smooth((s-a)/(b-a))}
+
+  var target = 0, current = 0;
+  var ptx = 0, pty = 0, pcx = 0, pcy = 0;
+  var ticking = false, courtIn = false;
+
+  function readScroll(){
+    target = clamp(window.pageYOffset || document.documentElement.scrollTop || 0, 0, TRACK);
+  }
+
+  // Map the eased scroll position to CSS custom properties on the stage.
+  function apply(s){
+    var v = [
+      ["--b0",    range(s,    0,  720)],
+      ["--b1",    range(s,  780, 1340)],
+      ["--b2",    range(s, 1220, 2020)],
+      ["--b3",    range(s, 2350, 3200)],
+      ["--b4in",  range(s, 2180, 2850)],
+      ["--b4out", range(s, 3340, 3960)],
+      // caption windows: fade in, hold, fade out
+      ["--c1", range(s,1500,1750) * (1 - range(s,2050,2300))],
+      ["--c2", range(s,2900,3100) * (1 - range(s,3500,3700))]
+    ];
+    for (var i=0;i<v.length;i++) stage.style.setProperty(v[i][0], v[i][1].toFixed(4));
+  }
+
+  // Courtyard video: restart from frame 0 on entry, pause on exit. No loop.
+  function syncVideo(s){
+    var inside = s > 2180;
+    if (inside && !courtIn){
+      courtIn = true;
+      try{ video.currentTime = 0; }catch(e){}
+      var p = video.play(); if (p && p.catch) p.catch(function(){});
+    } else if (!inside && courtIn){
+      courtIn = false;
+      video.pause();
+      try{ video.currentTime = 0; }catch(e){}
+    }
+  }
+
+  function frame(){
+    ticking = false;
+    var k = reduce.matches ? 1 : LERP;
+    var d = target - current;
+    current = Math.abs(d) < .05 ? target : current + d*k;
+
+    var pk = reduce.matches ? 0 : PTR_LERP;
+    pcx += (ptx - pcx)*pk; pcy += (pty - pcy)*pk;
+    if (Math.abs(ptx-pcx) < .0005) pcx = ptx;
+    if (Math.abs(pty-pcy) < .0005) pcy = pty;
+
+    apply(current);
+    stage.style.setProperty("--px", pcx.toFixed(4));
+    stage.style.setProperty("--py", pcy.toFixed(4));
+    syncVideo(target);
+
+    if (current !== target || pcx !== ptx || pcy !== pty) request();
+  }
+  function request(){ if(!ticking){ ticking = true; requestAnimationFrame(frame); } }
+
+  window.addEventListener("scroll", function(){ readScroll(); request(); }, {passive:true});
+  window.addEventListener("resize", function(){ readScroll(); request(); });
+  window.addEventListener("pointermove", function(e){
+    if (reduce.matches) return;
+    ptx = (e.clientX / window.innerWidth  - .5) * 2;
+    pty = (e.clientY / window.innerHeight - .5) * 2;
+    request();
+  }, {passive:true});
+
+  // Reveal the video only once it has real frames; the still sits underneath until then.
+  video.addEventListener("loadeddata", function(){ video.classList.add("ready"); });
+
+  // Keys 1..6 and the on-screen buttons
+  function goto(i){
+    window.scrollTo({top:BEATS[i], behavior: reduce.matches ? "auto" : "smooth"});
+  }
+  window.addEventListener("keydown", function(e){
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var t = e.target && e.target.tagName;
+    if (t === "INPUT" || t === "TEXTAREA" || t === "SELECT") return;
+    if (e.key >= "1" && e.key <= "6"){ e.preventDefault(); goto(+e.key - 1); }
+  });
+  var btns = document.querySelectorAll(".beats button");
+  for (var i=0;i<btns.length;i++) btns[i].addEventListener("click", function(){ goto(+this.dataset.beat); });
+
+  readScroll();
+  current = reduce.matches ? target : target; // start in place after reloads
+  apply(current);
+  syncVideo(target);
+  request();
+})();
+</script>
+</body>
+</html>
