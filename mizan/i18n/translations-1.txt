@@ -228,7 +228,7 @@ This website, in its current state, sets no analytics or advertising cookies and
 Terms / Investment Information || Voorwaarden / Investeringsinformatie || الشروط / معلومات الاستثمار
 Disclaimer || Disclaimer || إخلاء المسؤولية
 Not advice or an offer || Geen advies of aanbod || ليس نصيحة أو عرضًا
-This website provides general information about Mizan Group FZCO investment approaches. It is not investment, legal or tax advice and is not an offer or solicitation where one would be unlawful. || Deze website biedt algemene informatie over de investeringsbenaderingen van Mizan Group FZCO. Het is geen beleggings-, juridisch of fiscaal advies en geen aanbod of uitnodiging waar dat onwettig zou zijn. || يقدم هذا الموقع معلومات عامة عن مناهج الاستثمار لدى Mizan Group FZCO. وهو ليس نصيحة استثمارية أو قانونية أو ضريبية، وليس عرضًا أو دعوة حيث يكون ذلك غير قانوني.
+This website provides general information about Mizan Capital investment approaches. It is not investment, legal or tax advice and is not an offer or solicitation where one would be unlawful. || Deze website biedt algemene informatie over de investeringsbenaderingen van Mizan Capital. Het is geen beleggings-, juridisch of fiscaal advies en geen aanbod of uitnodiging waar dat onwettig zou zijn. || يقدم هذا الموقع معلومات عامة عن مناهج الاستثمار لدى Mizan Capital. وهو ليس نصيحة استثمارية أو قانونية أو ضريبية، وليس عرضًا أو دعوة حيث يكون ذلك غير قانوني.
 Risk || Risico || المخاطر
 Returns || Rendementen || العوائد
 "Up to" figures describe a potential maximum annual return. They are not guarantees, forecasts or promises of future performance. || Cijfers met "tot" beschrijven een mogelijk maximaal jaarlijks rendement. Het zijn geen garanties, prognoses of beloften van toekomstige resultaten. || تصف الأرقام المسبوقة بـ"حتى" أقصى عائد سنوي محتمل. وهي ليست ضمانات أو توقعات أو وعودًا بأداء مستقبلي.
@@ -249,4 +249,4 @@ How It Works || Hoe het werkt || كيف يعمل
 Privacy || Privacy || الخصوصية
 Terms || Voorwaarden || الشروط
 Investment risk. || Beleggingsrisico. || مخاطر الاستثمار.
-© Mizan Group FZCO. || © Mizan Group FZCO. || © Mizan Group FZCO.
+© Mizan Capital. || © Mizan Capital. || © Mizan Capital.

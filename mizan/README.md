@@ -1,6 +1,6 @@
 > **Current hero:** the original generated skyline, tower and glass-door journey (identical to `mizan-v1-generated/`), with only the Mizan Capital logo, the English "Plan a call" wording and the EN / NL / AR language switcher added. The photo journey, trading-floor scene and live market ticker were removed; parts of this file about them describe options that are no longer in the page.
 
-# Mizan Group FZCO website (demo frontend)
+# Mizan Capital website (demo frontend)
 
 Vanilla HTML/CSS/JS, no build step. Open `mizan/index.html` or serve the folder statically.
 
@@ -34,7 +34,7 @@ Investor data is held in memory only; never stored in localStorage.
 For true photographic realism, supply photographs through `MIZAN_CONFIG.cinePlates = { sky, far, mid, tower, facade, floor }` in `config.js` (any plate you set replaces the generated canvas; use transparent PNG/WebP for `far`, `mid` and `tower`). Trading-floor screens always show simulated data: never use real prices or performance there.
 
 ## Logo
-The supplied "Mizan Capital" horizontal logo is used in the header and footer (`img/logo-capital*.svg/png`: vector trace and transparent PNG; the `-light` version has white lettering for dark backgrounds; `img/favicon.svg` is the column mark). Replace with the original vector artwork if you have it. The legal entity name on the site is still "Mizan Group FZCO"; say if the brand name in headings and legal text should change to Mizan Capital too.
+The supplied "Mizan Capital" horizontal logo is used in the header and footer (`img/logo-capital*.svg/png`: vector trace and transparent PNG; the `-light` version has white lettering for dark backgrounds; `img/favicon.svg` is the column mark). Replace with the original vector artwork if you have it. The legal entity name on the site is still "Mizan Capital"; say if the brand name in headings and legal text should change to Mizan Capital too.
 
 ## Real footage (exact shot, scroll-scrubbed)
 The generated city cannot be photographically real. To use a real shot, supply a video you have the rights to (stock, drone or your own footage) and set in `js/config.js`:

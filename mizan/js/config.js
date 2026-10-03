@@ -1,5 +1,5 @@
 /*
- * MIZAN GROUP FZCO — central configuration
+ * MIZAN CAPITAL — central configuration
  * ---------------------------------------------------------------
  * Single source of truth for every strategy figure on the site.
  * Cards, selector, comparison, strategy pages, forms, FAQ and

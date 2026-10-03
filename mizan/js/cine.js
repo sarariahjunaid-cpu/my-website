@@ -1,5 +1,5 @@
 /*
- * MIZAN GROUP FZCO — scroll-driven cinematic hero ("the journey").
+ * MIZAN CAPITAL — scroll-driven cinematic hero ("the journey").
  *
  * Mechanism: a tall track with a position:sticky stage. Scroll distance is mapped through a
  * smoothstep into CSS custom properties on the stage, throttled on requestAnimationFrame and
