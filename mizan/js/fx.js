@@ -173,10 +173,10 @@
     ["Other relevant project costs", "Other costs relevant to a project."]
   ];
   function towerFx(box) {
+    var I = window.MizanI18n, tr = I ? I.t : function (s) { return s; };
     var NS = "http://www.w3.org/2000/svg", cx = 260, base = 640, t = 30, step = 56;
     var svg = document.createElementNS(NS, "svg"); svg.setAttribute("viewBox", "0 0 520 720"); svg.setAttribute("class", "tw-svg"); svg.setAttribute("aria-hidden", "true");
     var gGrid = document.createElementNS(NS, "g"), gT = document.createElementNS(NS, "g"); gT.setAttribute("class", "tw-g");
-    /* ground grid */
     for (var i = -6; i <= 6; i++) {
       gGrid.innerHTML += '<line x1="' + (cx + i * 36 - 216) + '" y1="' + (base + 40 + 108 - i * 18) + '" x2="' + (cx + i * 36 + 216) + '" y2="' + (base + 40 - 108 - i * 18) + '"/>';
       gGrid.innerHTML += '<line x1="' + (cx - i * 36 - 216) + '" y1="' + (base + 40 - 108 + i * 18) + '" x2="' + (cx - i * 36 + 216) + '" y2="' + (base + 40 + 108 + i * 18) + '"/>';
@@ -197,30 +197,35 @@
 
     var stage = box.querySelector(".tw-stage"), list = box.querySelector(".tw-list"), info = box.querySelector(".tw-info");
     stage.appendChild(svg);
-    list.innerHTML = FLOORS.map(function (f, i) { return '<li><button type="button" data-i="' + i + '" aria-pressed="false">' + f[0] + '</button></li>'; }).reverse().join("");
     var cur = -1, userTouched = false;
+    function renderList() {
+      list.innerHTML = FLOORS.map(function (f, i) { return '<li><button type="button" data-i="' + i + '" aria-pressed="' + (i === cur) + '">' + tr(f[0]) + '</button></li>'; }).reverse().join("");
+      showInfo();
+    }
+    function showInfo() {
+      info.innerHTML = cur < 0 ? "<b>" + tr("Potential uses of proceeds") + "</b><span>" + tr("Select a floor to explore.") + "</span>" : "<b>" + tr(FLOORS[cur][0]) + "</b><span>" + tr(FLOORS[cur][1]) + "</span>";
+    }
     function pick(i, byUser) {
       if (byUser) userTouched = true;
       if (i === cur && !byUser) return;
       cur = i;
       slabs.forEach(function (s, k) { s.classList.toggle("on", k === i); });
       Array.prototype.forEach.call(list.querySelectorAll("button"), function (b) { var on = +b.dataset.i === i; b.setAttribute("aria-pressed", on); });
-      info.innerHTML = i < 0 ? "<b>Potential uses of proceeds</b><span>Select a floor to explore.</span>" : "<b>" + FLOORS[i][0] + "</b><span>" + FLOORS[i][1] + "</span>";
+      showInfo();
     }
-    pick(-1);
+    renderList();
+    if (I) I.onChange(renderList);
     svg.addEventListener("pointermove", function (e) { var s = e.target.closest(".slab"); if (s) pick(+s.dataset.i, true); });
     svg.addEventListener("click", function (e) { var s = e.target.closest(".slab"); if (s) pick(+s.dataset.i, true); });
     list.addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) pick(+b.dataset.i, true); });
     list.addEventListener("focusin", function (e) { var b = e.target.closest("button"); if (b) pick(+b.dataset.i, true); });
     svg.style.pointerEvents = "auto";
-    /* pointer tilt */
     box.addEventListener("pointermove", function (e) {
       if (reduce.matches) return; var b = stage.getBoundingClientRect();
       var x = clamp((e.clientX - b.left) / b.width - .5, -.5, .5), y = clamp((e.clientY - b.top) / b.height - .5, -.5, .5);
       stage.style.setProperty("--ry", (x * 16).toFixed(2) + "deg"); stage.style.setProperty("--rx", (-y * 8).toFixed(2) + "deg");
     });
     box.addEventListener("pointerleave", function () { stage.style.setProperty("--ry", "0deg"); stage.style.setProperty("--rx", "0deg"); });
-    /* idle scan sweep: climbs the tower and lights each floor until the visitor takes over */
     var pos = 0;
     function frame(dt) {
       if (reduce.matches) return;

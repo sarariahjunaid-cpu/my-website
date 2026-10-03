@@ -10,20 +10,19 @@
  * Mizan project, a price or a performance figure. Figures in the final "chamber" come from config.js.
  *
  * Beats over TRACK px of scroll:
- *   b0 settle        0-700     city recedes from the bottom edge; title and lede hold
+ *   b0 settle        0-700     the wide skyline settles; title and lede hold
  *   b1 type out    760-1300    title rises and fades, tracking opens
- *   z1 zoom        1200-2300   camera pushes from the skyline into the glass tower
- *   z2 facade      2000-3000   the curtain wall fills the frame; we zoom through the lit window
- *   z3 floor       2700-3400   the trading floor (simulated screens) settles in
- *   z4 chamber     3500-4100   floor defocuses; the strategy chamber appears (then holds, interactive)
+ *   photos 1..5   1100-4800    skyline > towers > street canyon > aerial > facade; each fades in and pushes in
+ *   z3 floor      4700-5300    through the window into the trading floor (simulated screens)
+ *   z4 chamber    5400-6000    floor defocuses; the strategy chamber appears (then holds, interactive)
  */
 (function () {
   "use strict";
   var C = window.MIZAN_CONFIG, S = C.strategies, KEYS = Object.keys(S);
   var stage = document.getElementById("cineStage"), track = document.getElementById("cineTrack");
   if (!stage || !track) return;
-  var TRACK = 4600, LERP = .14, PTR = .08;
-  var BEATS = [0, 900, 1900, 3200, 4300];                  /* keys 1..5 */
+  var TRACK = 6200, LERP = .14, PTR = .08;
+  var BEATS = [0, 1300, 2500, 3700, 5100, 6100];            /* keys 1..6 */
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
   var NS = "http://www.w3.org/2000/svg";
 
@@ -39,17 +38,23 @@
 
   /* ---------- the chamber (strategy plates, from config) ---------- */
   var ICON = { goldFx: "i-gold", realEstate: "i-re", stable: "i-st" };
-  var ch = $("#chamberPlates");
-  ch.innerHTML = KEYS.map(function (k, i) {
-    var s = S[k];
-    return '<article class="plate" style="--i:' + i + '"><svg class="pi" aria-hidden="true"><use href="#' + ICON[k] + '"/></svg>' +
-      '<h3>' + esc(s.label) + '</h3><p class="ps">' + esc(k === "goldFx" ? "Algorithm Trader Premium" : "Mizan Group " + s.label) + "</p>" +
-      (k === "goldFx" ? '<canvas class="spark" aria-hidden="true"></canvas>' : "") +
-      '<dl class="pf"><div><dt>From</dt><dd>' + eur(s.minimum) + "</dd></div><div><dt>Potential return</dt><dd>Up to " + s.potentialReturn + "% p.a.</dd></div><div><dt>Duration</dt><dd>" + yrs(s.duration) + "</dd></div></dl>" +
-      '<button class="btn btn-primary" type="button" data-open="invest" data-strategy="' + k + '" data-track="chamber_start_investing">Start Investing</button>' +
-      '<a class="plate-link" href="#/' + s.slug + '">Details</a></article>';
-  }).join("");
-  $("#chamberDisc").textContent = C.disclosure;
+  var I = window.MizanI18n, tr = I ? I.t : function (s) { return s; }, eur = I ? I.eur : function (n) { return "€" + Number(n).toLocaleString("en-US"); };
+  var yrs = I ? I.years : function (n) { return n + (n === 1 ? " year" : " years"); };
+  function renderChamber() {
+    $("#chamberPlates").innerHTML = KEYS.map(function (k, i) {
+      var s = S[k];
+      return '<article class="plate" style="--i:' + i + '"><svg class="pi" aria-hidden="true"><use href="#' + ICON[k] + '"/></svg>' +
+        '<h3>' + esc(tr(s.label)) + '</h3><p class="ps">' + esc(k === "goldFx" ? "Algorithm Trader Premium" : s.name) + "</p>" +
+        (k === "goldFx" ? '<canvas class="spark" aria-hidden="true"></canvas>' : "") +
+        '<dl class="pf"><div><dt>' + esc(tr("From")) + "</dt><dd>" + eur(s.minimum) + "</dd></div><div><dt>" + esc(tr("Potential return")) + "</dt><dd>" + esc(tr("Up to {n}% p.a.", { n: s.potentialReturn })) + "</dd></div><div><dt>" + esc(tr("Duration")) + "</dt><dd>" + yrs(s.duration) + "</dd></div></dl>" +
+        '<button class="btn btn-primary" type="button" data-open="invest" data-strategy="' + k + '" data-track="chamber_start_investing">' + esc(tr("Start Investing")) + '</button>' +
+        '<a class="plate-link" href="#/' + s.slug + '">' + esc(tr("Details")) + '</a></article>';
+    }).join("");
+    $("#chamberDisc").textContent = tr(C.disclosure);
+    if (window.MizanFx) window.MizanFx.initSparks();
+  }
+  renderChamber();
+  if (I) I.onChange(renderChamber);
 
   /* ---------- optional real footage: scroll scrubs the video ---------- */
   var CV = C.cineVideo, vid = null;
@@ -69,11 +74,17 @@
   function active() { return track.offsetParent !== null; }
   function readScroll() { if (!active()) return; target = clamp(-track.getBoundingClientRect().top, 0, TRACK); }
   function set(k, v) { stage.style.setProperty(k, v.toFixed(4)); }
+  /* Photo journey: each plate has a window [fadeInStart, fadeInEnd] .. [fadeOutStart, fadeOutEnd]. */
+  var PH = [[0, 0, 1100, 1500], [1100, 1500, 1900, 2300], [1900, 2300, 2700, 3100], [2700, 3100, 3500, 3900], [3500, 3900, 4300, 4800]];
   function apply(s) {
-    var b1 = range(s, 760, 1300), z3 = range(s, 2500, 3200), z4 = range(s, 3500, 4100);
-    set("--b0", range(s, 0, 700)); set("--b1", b1); set("--z1", range(s, 1200, 2300)); set("--z2", range(s, 2000, 2900));
+    var b1 = range(s, 760, 1300), z3 = range(s, 4700, 5300), z4 = range(s, 5400, 6000);
+    set("--b0", range(s, 0, 700)); set("--b1", b1);
+    PH.forEach(function (p, i) {
+      var v = (p[1] > 0 ? range(s, p[0], p[1]) : 1) * (1 - range(s, p[2], p[3]));
+      set("--v" + (i + 1), v); set("--q" + (i + 1), clamp((s - p[0]) / (p[3] - p[0]), 0, 1));
+    });
     set("--z3", z3); set("--z4", z4);
-    set("--c1", range(s, 1500, 1750) * (1 - range(s, 2150, 2400))); set("--c2", range(s, 3000, 3250) * (1 - range(s, 3500, 3700)));
+    set("--c1", range(s, 1600, 1800) * (1 - range(s, 2200, 2400))); set("--c2", range(s, 5000, 5200) * (1 - range(s, 5500, 5700)));
     stage.classList.toggle("p-type-off", b1 > .55);
     stage.classList.toggle("p-chamber", z4 > .5);
     stage.classList.toggle("p-end", s > TRACK - 40);
@@ -107,9 +118,20 @@
     if (e.metaKey || e.ctrlKey || e.altKey || !active()) return;
     var t = e.target && e.target.tagName; if (t === "INPUT" || t === "TEXTAREA" || t === "SELECT") return;
     if (document.querySelector("dialog[open]")) return;
-    if (e.key >= "1" && e.key <= "5") { e.preventDefault(); go(+e.key - 1); }
+    if (e.key >= "1" && e.key <= "6") { e.preventDefault(); go(+e.key - 1); }
   });
   Array.prototype.forEach.call(document.querySelectorAll(".c-dots button"), function (b) { b.addEventListener("click", function () { go(+b.dataset.beat); }); });
+
+  var firstPhoto = stage.querySelector(".ph1");                                      /* if the photographs fail to load, fall back to the generated city */
+  if (firstPhoto) firstPhoto.addEventListener("error", function () { if (window.MizanScene) window.MizanScene.fallback(); });
+
+  /* The stage starts under the top bar and header, so at scroll 0 its bottom edge (ticker, scene dots) sits exactly at the bottom of the viewport. */
+  function setHdr() {
+    var tb = document.querySelector(".topbar"), hd = document.querySelector("header.site");
+    if (tb && hd) document.documentElement.style.setProperty("--hdr-h", (tb.offsetHeight + hd.offsetHeight) + "px");
+  }
+  setHdr(); window.addEventListener("resize", setHdr); if (I) I.onChange(function () { setTimeout(setHdr, 0); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(setHdr);
 
   readScroll(); cur = target; apply(cur); set("--px", 0); set("--py", 0); request();
 })();

@@ -36,7 +36,14 @@
 <div class="devbar" id="devbar" hidden>DEV: legal documentation must be reconciled with the current website terms before public launch (Real Estate memorandum still states the older €50,000 minimum, 15% and 36 months). See README.</div>
 
 <div class="cursor" id="cursor" aria-hidden="true"></div>
-<div class="topbar" role="note"><b>Mizan Group FZCO</b> · Investment Platform · Investing involves risk</div>
+<div class="topbar" role="note">
+  <span class="tb-text"><b>Mizan Group FZCO</b> · Investment Platform · Investing involves risk</span>
+  <div class="lang" role="group" aria-label="Language">
+    <button type="button" data-lang="en" lang="en" aria-pressed="true" title="English">EN</button>
+    <button type="button" data-lang="nl" lang="nl" aria-pressed="false" title="Nederlands">NL</button>
+    <button type="button" data-lang="ar" lang="ar" aria-pressed="false" title="العربية">AR</button>
+  </div>
+</div>
 
 <header class="site">
   <div class="wrap bar">
@@ -53,7 +60,7 @@
       </ul>
     </nav>
     <div class="bar-cta">
-      <button class="btn btn-secondary" type="button" data-open="call" data-track="header_plan_call">Plan een call</button>
+      <button class="btn btn-secondary" type="button" data-open="call" data-track="header_plan_call">Plan a call</button>
       <button class="btn btn-primary" type="button" data-open="invest" data-track="header_start_investing">Start Investing</button>
       <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span></button>
     </div>
@@ -68,7 +75,7 @@
   <a class="nl" href="#/faq">FAQ</a>
   <a class="nl" href="#/contact">Contact</a>
   <button class="btn btn-primary" type="button" data-open="invest">Start Investing</button>
-  <button class="btn btn-secondary" type="button" data-open="call" style="color:#fff;border-color:rgba(255,255,255,.55)">Plan een call</button>
+  <button class="btn btn-secondary" type="button" data-open="call" style="color:#fff;border-color:rgba(255,255,255,.55)">Plan a call</button>
 </div>
 
 <main id="main" tabindex="-1">
@@ -78,12 +85,17 @@
 
   <section class="cine" id="cine" aria-labelledby="h-hero">
     <div class="cine-track" id="cineTrack">
-      <div class="cine-stage" id="cineStage">
+      <div class="cine-stage has-photos" id="cineStage">
         <canvas class="layer c-sky" id="pSky" aria-hidden="true"></canvas>
         <canvas class="layer c-far" id="pFar" aria-hidden="true"></canvas>
         <canvas class="layer c-mid" id="pMid" aria-hidden="true"></canvas>
         <canvas class="layer c-tower" id="pTower" width="1400" height="3000" aria-hidden="true"></canvas>
         <canvas class="layer c-facade" id="pFacade" aria-hidden="true"></canvas>
+        <img class="layer ph ph1" src="img/plates/p1-skyline.jpg" alt="" decoding="async" fetchpriority="high">
+        <img class="layer ph ph2" src="img/plates/p2-towers.jpg" alt="" decoding="async">
+        <img class="layer ph ph3" src="img/plates/p3-canyon.jpg" alt="" decoding="async">
+        <img class="layer ph ph4" src="img/plates/p4-aerial.jpg" alt="" decoding="async">
+        <img class="layer ph ph5" src="img/plates/p5-facade.jpg" alt="" decoding="async">
         <canvas class="layer c-floor" id="pFloor" aria-hidden="true"></canvas>
 
         <div class="layer chamber" id="chamber">
@@ -102,27 +114,28 @@
           <p class="support">Gold FX · Real Estate · Stable</p>
           <div class="btn-row">
             <button class="btn btn-primary" type="button" data-open="invest" data-track="hero_start_investing">Start Investing →</button>
-            <button class="btn btn-secondary" type="button" data-open="call" data-track="hero_plan_call">Plan een call</button>
+            <button class="btn btn-secondary" type="button" data-open="call" data-track="hero_plan_call">Plan a call</button>
           </div>
           <p class="hero-note">Potential returns are not guaranteed. Investing involves risk, including the possible loss of part or all of the invested capital.</p>
         </div>
 
-        <aside class="c-cap a" aria-hidden="true"><small>The tower</small><p>Different horizons. One discipline.</p></aside>
+        <aside class="c-cap a" aria-hidden="true"><small>The city</small><p>Different horizons. One discipline.</p></aside>
         <aside class="c-cap b" aria-hidden="true"><small>The floor</small><p>Where markets move, we keep a steady hand.</p></aside>
-        <p class="c-illus" aria-hidden="true">Illustrative scene. Not a Mizan Group project. Trading screens show simulated data only.</p>
+        <p class="c-illus" aria-hidden="true">Cityscape photographs: illustrative, not Mizan Group projects. Trading screens show simulated data only.</p>
         <a class="c-skip" href="#/home/choose">Skip intro</a>
         <nav class="c-dots" aria-label="Jump to scene">
           <button type="button" data-beat="0" aria-label="Scene 1: the skyline (key 1)">1</button>
-          <button type="button" data-beat="1" aria-label="Scene 2: the title leaves (key 2)">2</button>
-          <button type="button" data-beat="2" aria-label="Scene 3: the zoom to the tower (key 3)">3</button>
-          <button type="button" data-beat="3" aria-label="Scene 4: through the glass (key 4)">4</button>
-          <button type="button" data-beat="4" aria-label="Scene 5: the trading floor and strategies (key 5)">5</button>
+          <button type="button" data-beat="1" aria-label="Scene 2: the towers (key 2)">2</button>
+          <button type="button" data-beat="2" aria-label="Scene 3: the street canyon (key 3)">3</button>
+          <button type="button" data-beat="3" aria-label="Scene 4: the aerial and the facade (key 4)">4</button>
+          <button type="button" data-beat="4" aria-label="Scene 5: through the window to the trading floor (key 5)">5</button>
+          <button type="button" data-beat="5" aria-label="Scene 6: the strategies (key 6)">6</button>
         </nav>
+        <div class="ticker" role="region" aria-label="Foreign exchange rates">
+          <div class="ticker-track" id="tickerTrack"></div>
+          <span class="ticker-note" id="tickerNote"></span>
+        </div>
       </div>
-    </div>
-    <div class="ticker" aria-hidden="true">
-      <div class="ticker-track" id="tickerTrack"></div>
-      <span class="ticker-note">Illustrative animation. Not live or historical market data.</span>
     </div>
   </section>
 
@@ -210,7 +223,7 @@
         <span class="eyebrow">Personal guidance</span>
         <h2 id="h-gui">Speak with us before you decide.</h2>
         <p class="lead" style="margin:18px 0 30px">From initial orientation through documentation and onboarding, prospective investors can request personal contact with Mizan Group.</p>
-        <button class="btn btn-primary" type="button" data-open="call" data-track="guidance_plan_call">Plan een call →</button>
+        <button class="btn btn-primary" type="button" data-open="call" data-track="guidance_plan_call">Plan a call →</button>
       </div>
     </div>
   </section>
@@ -246,7 +259,7 @@
       <h2 id="h-final">Find the approach that fits your objectives.</h2>
       <div class="btn-row">
         <button class="btn btn-primary" type="button" data-open="invest" data-track="final_start_investing">Start Investing</button>
-        <button class="btn btn-secondary" type="button" data-open="call" data-track="final_plan_call">Plan een call</button>
+        <button class="btn btn-secondary" type="button" data-open="call" data-track="final_plan_call">Plan a call</button>
       </div>
       <p class="lead" style="margin-bottom:18px">Explore Mizan Group's three investment strategies or speak directly with us.</p>
       <p class="disc" style="margin-inline:auto">Potential returns are not guaranteed. Investing involves risk, including the possible loss of part or all of the invested capital.</p>
@@ -275,7 +288,7 @@
     <h2 style="margin-top:0">Documented steps for Real Estate.</h2>
     <div class="flow" aria-label="Real Estate investor process"><span>Information</span><i>→</i><span>Application</span><i>→</i><span>Identification / compliance</span><i>→</i><span>Final legal agreement</span><i>→</i><span>Payment</span><i>→</i><span>Registration</span><i>→</i><span>Distributions and repayment according to final terms</span></div>
     <p style="margin-top:22px">Exact conditions, timing and obligations are set out in the definitive investment documentation.</p>
-    <div class="btn-row" style="margin-top:26px"><button class="btn btn-primary" type="button" data-open="invest">Start Investing</button><button class="btn btn-secondary" type="button" data-open="call">Plan een call</button></div>
+    <div class="btn-row" style="margin-top:26px"><button class="btn btn-primary" type="button" data-open="invest">Start Investing</button><button class="btn btn-secondary" type="button" data-open="call">Plan a call</button></div>
   </div></section>
 </div>
 
@@ -295,7 +308,7 @@
         <li><b>Long-term investor relationships.</b></li>
       </ul>
       <p class="disc"><span class="ph">[FOUNDER / TEAM DETAILS — to be supplied]</span> No names, titles, experience, staffing, assets under management or track record are stated on this website until verified information is provided.</p>
-      <div class="btn-row" style="margin-top:24px"><button class="btn btn-primary" type="button" data-open="call">Plan een call →</button></div>
+      <div class="btn-row" style="margin-top:24px"><button class="btn btn-primary" type="button" data-open="call">Plan a call →</button></div>
     </div>
   </div></section>
 </div>
@@ -325,7 +338,7 @@
       <div class="rk"><h3>Stable</h3><ul><li>Long investment horizon</li><li>Liquidity limitations</li><li>Issuer / counterparty risk</li><li>Underlying investment risk</li></ul><p class="disc" style="margin-top:14px">The name "Stable" does not mean capital is protected or guaranteed.</p></div>
     </div>
     <p class="disc box" style="margin-top:34px">This page is general information and does not describe every risk. The definitive investment documentation governs your rights and obligations. Consider independent professional advice before investing.</p>
-    <div class="btn-row" style="margin-top:28px"><button class="btn btn-primary" type="button" data-open="invest">Start Investing</button><button class="btn btn-secondary" type="button" data-open="call">Plan een call</button></div>
+    <div class="btn-row" style="margin-top:28px"><button class="btn btn-primary" type="button" data-open="invest">Start Investing</button><button class="btn btn-secondary" type="button" data-open="call">Plan a call</button></div>
   </div></section>
 </div>
 
@@ -342,7 +355,7 @@
     <div class="contact-grid">
       <div class="cbox"><h3>General enquiry</h3><p>Questions about Mizan Group.</p><p class="ph">[GENERAL EMAIL]</p></div>
       <div class="cbox"><h3>Investment enquiry</h3><p>Questions about a specific strategy or the application.</p><p class="ph">[INVESTMENT ENQUIRIES EMAIL]</p><button class="btn btn-primary" type="button" data-open="invest">Start Investing</button></div>
-      <div class="cbox"><h3>Plan een call</h3><p>Request a conversation at a time that suits you.</p><button class="btn btn-secondary" type="button" data-open="call">Plan een call</button></div>
+      <div class="cbox"><h3>Plan a call</h3><p>Request a conversation at a time that suits you.</p><button class="btn btn-secondary" type="button" data-open="call">Plan a call</button></div>
     </div>
     <div class="prose" style="margin-top:56px"><h2>Company information</h2>
       <p>Mizan Group FZCO</p>
@@ -450,7 +463,7 @@
 
 <!-- ===================== PLAN EEN CALL DIALOG ===================== -->
 <dialog id="callDlg" aria-labelledby="callTitle">
-  <div class="dh"><h2 id="callTitle">Plan een call</h2><button class="x" type="button" data-close aria-label="Close call request">×</button></div>
+  <div class="dh"><h2 id="callTitle">Plan a call</h2><button class="x" type="button" data-close aria-label="Close call request">×</button></div>
   <div class="prog" aria-hidden="true"><i id="callProg"></i></div>
   <div class="pstep" id="callStepLbl" aria-live="polite"></div>
   <form class="db" id="callForm" novalidate>
@@ -480,9 +493,11 @@
 </dialog>
 
 <script src="js/config.js"></script>
+<script src="js/i18n.js"></script>
 <script src="js/fx.js"></script>
 <script src="js/scene.js"></script>
 <script src="js/cine.js"></script>
 <script src="js/app.js"></script>
+<script src="js/market.js"></script>
 </body>
 </html>

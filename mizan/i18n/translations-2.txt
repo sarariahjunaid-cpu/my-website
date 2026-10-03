@@ -1,0 +1,184 @@
+Select a strategy || Kies een strategie || اختر استراتيجية
+You can change this later in the review step. || U kunt dit later in de controlestap wijzigen. || يمكنك تغيير ذلك لاحقًا في خطوة المراجعة.
+Investment amount || Investeringsbedrag || مبلغ الاستثمار
+Amount (EUR) || Bedrag (EUR) || المبلغ (يورو)
+Investor details || Gegevens investeerder || بيانات المستثمر
+Used only to prepare your application. || Uitsluitend gebruikt om uw aanvraag voor te bereiden. || تُستخدم فقط لإعداد طلبك.
+First name || Voornaam || الاسم الأول
+Last name || Achternaam || اسم العائلة
+Email || E-mail || البريد الإلكتروني
+Phone || Telefoon || الهاتف
+Country of residence || Land van verblijf || بلد الإقامة
+Investor type || Type investeerder || نوع المستثمر
+Individual || Particulier || فرد
+Company || Bedrijf || شركة
+Preferred contact method || Voorkeur voor contact || وسيلة الاتصال المفضلة
+Risk acknowledgement || Risicoverklaring || إقرار المخاطر
+Please confirm each statement. || Bevestig elke verklaring. || يُرجى تأكيد كل عبارة.
+Investing involves risk. || Investeren brengt risico's met zich mee. || ينطوي الاستثمار على مخاطر.
+Potential returns are not guaranteed. || Potentiële rendementen zijn niet gegarandeerd. || العوائد المحتملة غير مضمونة.
+I can lose part or all of my invested capital. || Ik kan een deel van of al mijn geïnvesteerde kapitaal verliezen. || يمكن أن أخسر جزءًا من رأس مالي المستثمر أو كله.
+Displayed potential returns are not guarantees of future performance. || De getoonde potentiële rendementen zijn geen garantie voor toekomstige resultaten. || العوائد المحتملة المعروضة ليست ضمانًا للأداء المستقبلي.
+Final rights and obligations are governed by the definitive investment documentation. || De definitieve rechten en verplichtingen worden bepaald door de definitieve investeringsdocumentatie. || تخضع الحقوق والالتزامات النهائية لوثائق الاستثمار النهائية.
+Review your application || Controleer uw aanvraag || راجع طلبك
+Check the details below. Use Edit to change anything. || Controleer de gegevens hieronder. Gebruik Wijzigen om iets aan te passen. || تحقق من التفاصيل أدناه. استخدم تعديل لتغيير أي شيء.
+Back || Terug || رجوع
+Continue || Doorgaan || متابعة
+Your details || Uw gegevens || بياناتك
+Strategy of interest || Strategie van interesse || الاستراتيجية محل الاهتمام
+General / Not sure yet || Algemeen / Nog niet zeker || عام / لست متأكدًا بعد
+Preferred date and time || Voorkeursdatum en -tijd || التاريخ والوقت المفضلان
+These are preferences. Mizan Group will confirm an actual time. || Dit zijn voorkeuren. Mizan Group bevestigt een definitieve tijd. || هذه تفضيلات. ستؤكد Mizan Group موعدًا فعليًا.
+Preferred date || Voorkeursdatum || التاريخ المفضل
+Preferred time || Voorkeurstijd || الوقت المفضل
+Morning (09:00–12:00) || Ochtend (09:00–12:00) || صباحًا (09:00–12:00)
+Afternoon (12:00–17:00) || Middag (12:00–17:00) || بعد الظهر (12:00–17:00)
+Evening (17:00–20:00) || Avond (17:00–20:00) || مساءً (17:00–20:00)
+Notes or questions (optional) || Opmerkingen of vragen (optioneel) || ملاحظات أو أسئلة (اختياري)
+Consent || Toestemming || الموافقة
+I agree that Mizan Group may contact me about this request. See the || Ik ga ermee akkoord dat Mizan Group contact met mij opneemt over dit verzoek. Zie het || أوافق على أن تتواصل معي Mizan Group بشأن هذا الطلب. راجع
+Mizan Capital, home || Mizan Capital, startpagina || Mizan Capital، الصفحة الرئيسية
+Mizan Capital || Mizan Capital || Mizan Capital
+Primary || Hoofdnavigatie || التنقل الرئيسي
+Open menu || Menu openen || افتح القائمة
+Close menu || Menu sluiten || أغلق القائمة
+Mobile menu || Mobiel menu || قائمة الجوال
+Jump to scene || Ga naar scène || انتقل إلى مشهد
+Scene 1: the skyline (key 1) || Scène 1: de skyline (toets 1) || المشهد 1: أفق المدينة (المفتاح 1)
+Scene 2: the towers (key 2) || Scène 2: de torens (toets 2) || المشهد 2: الأبراج (المفتاح 2)
+Scene 3: the street canyon (key 3) || Scène 3: het straatdal (toets 3) || المشهد 3: وادي الشارع (المفتاح 3)
+Scene 4: the aerial and the facade (key 4) || Scène 4: het luchtbeeld en de gevel (toets 4) || المشهد 4: المنظر الجوي والواجهة (المفتاح 4)
+Scene 5: through the window to the trading floor (key 5) || Scène 5: door het raam naar de handelsvloer (toets 5) || المشهد 5: عبر النافذة إلى قاعة التداول (المفتاح 5)
+Scene 6: the strategies (key 6) || Scène 6: de strategieën (toets 6) || المشهد 6: الاستراتيجيات (المفتاح 6)
+Brand imagery || Merkbeeld || صور العلامة
+Close application || Aanvraag sluiten || أغلق الطلب
+Close call request || Callverzoek sluiten || أغلق طلب المكالمة
+Language || Taal || اللغة
+Mizan Group FZCO | Investment Strategies || Mizan Group FZCO | Investeringsstrategieën || Mizan Group FZCO | استراتيجيات الاستثمار
+Explore Mizan Group FZCO investment approaches across Gold FX, Real Estate and Stable strategies. || Verken de investeringsbenaderingen van Mizan Group FZCO in de strategieën Gold FX, Vastgoed en Stable. || استكشف مناهج الاستثمار لدى Mizan Group FZCO عبر استراتيجيات Gold FX والعقارات وStable.
+Investment Strategies | Mizan Group FZCO || Investeringsstrategieën | Mizan Group FZCO || استراتيجيات الاستثمار | Mizan Group FZCO
+Compare Mizan Group FZCO investment strategies: Gold FX, Real Estate and Stable. || Vergelijk de investeringsstrategieën van Mizan Group FZCO: Gold FX, Vastgoed en Stable. || قارن استراتيجيات الاستثمار لدى Mizan Group FZCO: Gold FX والعقارات وStable.
+How Investing Works | Mizan Group FZCO || Hoe investeren werkt | Mizan Group FZCO || كيف يعمل الاستثمار | Mizan Group FZCO
+The Mizan Group FZCO investment process, from exploring strategies to funding and registration. || Het investeringsproces van Mizan Group FZCO, van het verkennen van strategieën tot financiering en registratie. || عملية الاستثمار لدى Mizan Group FZCO، من استكشاف الاستراتيجيات إلى التمويل والتسجيل.
+About | Mizan Group FZCO || Over ons | Mizan Group FZCO || من نحن | Mizan Group FZCO
+About Mizan Group FZCO: multiple investment approaches, a disciplined process and clear documentation. || Over Mizan Group FZCO: meerdere investeringsbenaderingen, een gedisciplineerd proces en heldere documentatie. || نبذة عن Mizan Group FZCO: مناهج استثمار متعددة وعملية منضبطة ووثائق واضحة.
+Market & Insights | Mizan Group FZCO || Markt & Inzichten | Mizan Group FZCO || السوق والرؤى | Mizan Group FZCO
+Market commentary and investment education from Mizan Group FZCO. || Marktcommentaar en beleggingseducatie van Mizan Group FZCO. || تعليقات السوق والتثقيف الاستثماري من Mizan Group FZCO.
+Risk Disclosure | Mizan Group FZCO || Risicowaarschuwing | Mizan Group FZCO || إفصاح المخاطر | Mizan Group FZCO
+Risks of investing with Mizan Group FZCO, including possible loss of part or all of invested capital. || Risico's van investeren met Mizan Group FZCO, waaronder het mogelijke verlies van een deel van of het gehele geïnvesteerde kapitaal. || مخاطر الاستثمار مع Mizan Group FZCO، بما في ذلك احتمال خسارة جزء من رأس المال المستثمر أو كله.
+FAQ | Mizan Group FZCO || Veelgestelde vragen | Mizan Group FZCO || الأسئلة الشائعة | Mizan Group FZCO
+Frequently asked questions about Mizan Group FZCO investment strategies, terms and process. || Veelgestelde vragen over de investeringsstrategieën, voorwaarden en het proces van Mizan Group FZCO. || أسئلة شائعة حول استراتيجيات الاستثمار والشروط والعملية لدى Mizan Group FZCO.
+Contact | Mizan Group FZCO || Contact | Mizan Group FZCO || اتصل بنا | Mizan Group FZCO
+Contact Mizan Group FZCO for general or investment enquiries, or plan a call. || Neem contact op met Mizan Group FZCO voor algemene of beleggingsvragen, of plan een call. || تواصل مع Mizan Group FZCO للاستفسارات العامة أو الاستثمارية، أو احجز مكالمة.
+Privacy Policy | Mizan Group FZCO || Privacybeleid | Mizan Group FZCO || سياسة الخصوصية | Mizan Group FZCO
+Privacy policy and cookie information for Mizan Group FZCO. || Privacybeleid en cookie-informatie van Mizan Group FZCO. || سياسة الخصوصية ومعلومات ملفات تعريف الارتباط لدى Mizan Group FZCO.
+Disclaimer | Mizan Group FZCO || Disclaimer | Mizan Group FZCO || إخلاء المسؤولية | Mizan Group FZCO
+Important information and disclaimer for Mizan Group FZCO. || Belangrijke informatie en disclaimer van Mizan Group FZCO. || معلومات مهمة وإخلاء مسؤولية لدى Mizan Group FZCO.
+Terms / Investment Information | Mizan Group FZCO || Voorwaarden / Investeringsinformatie | Mizan Group FZCO || الشروط / معلومات الاستثمار | Mizan Group FZCO
+Terms and investment information for Mizan Group FZCO. || Voorwaarden en investeringsinformatie van Mizan Group FZCO. || الشروط ومعلومات الاستثمار لدى Mizan Group FZCO.
+An algorithmic Gold / FX investment strategy with a one-year horizon. || Een algoritmische goud-/FX-investeringsstrategie met een horizon van één jaar. || استراتيجية استثمار خوارزمية في الذهب / الفوركس بأفق سنة واحدة.
+A three-year real-estate investment approach. || Een vastgoedinvesteringsaanpak met een looptijd van drie jaar. || نهج استثمار عقاري لمدة ثلاث سنوات.
+A longer-term, measured and disciplined approach over five years. || Een langetermijnbenadering, bedachtzaam en gedisciplineerd, over vijf jaar. || نهج أطول أجلًا، مدروس ومنضبط، على مدى خمس سنوات.
+Mizan Group Gold FX Algorithm Trader Premium is an algorithmic Gold / FX investment strategy. It is the shortest-duration approach on the platform. The methodology, instruments, risk controls and reporting are set out in the definitive investment documentation, not on this website. || Mizan Group Gold FX Algorithm Trader Premium is een algoritmische goud-/FX-investeringsstrategie. Het is de benadering met de kortste looptijd op het platform. De methodiek, instrumenten, risicobeheersing en rapportage staan in de definitieve investeringsdocumentatie, niet op deze website. || Mizan Group Gold FX Algorithm Trader Premium هي استراتيجية استثمار خوارزمية في الذهب / الفوركس. وهي أقصر نهج مدةً على المنصة. وترد المنهجية والأدوات وضوابط المخاطر والتقارير في وثائق الاستثمار النهائية، وليس على هذا الموقع.
+Mizan Group Real Estate is a three-year investment approach. Proceeds may be used for real-estate related purposes, which can include property acquisition, development, renovation, refurbishment, project financing, land acquisition, preparatory development costs, sales and marketing, and other relevant project costs. Specific projects, locations and terms are defined in the definitive investment documentation. || Mizan Group Real Estate is een investeringsaanpak met een looptijd van drie jaar. De opbrengsten kunnen worden gebruikt voor vastgoedgerelateerde doeleinden, waaronder vastgoedverwerving, ontwikkeling, renovatie, herinrichting, projectfinanciering, grondverwerving, voorbereidende ontwikkelingskosten, verkoop en marketing en andere relevante projectkosten. Specifieke projecten, locaties en voorwaarden worden vastgelegd in de definitieve investeringsdocumentatie. || Mizan Group Real Estate هي نهج استثمار لمدة ثلاث سنوات. قد تُستخدم العائدات لأغراض ذات صلة بالعقارات، ويمكن أن تشمل شراء العقارات والتطوير والترميم والتجديد وتمويل المشاريع وشراء الأراضي وتكاليف التطوير التمهيدية والمبيعات والتسويق وتكاليف المشروع الأخرى ذات الصلة. وتُحدَّد المشاريع والمواقع والشروط المحددة في وثائق الاستثمار النهائية.
+Mizan Group Stable is the longer-term approach on the platform: measured, disciplined and focused on stability over a five-year horizon. The name describes the intended character of the strategy. It is not a guarantee, and it does not imply protection of capital. The underlying composition is described in the definitive investment documentation. || Mizan Group Stable is de benadering met de langste looptijd op het platform: bedachtzaam, gedisciplineerd en gericht op stabiliteit over een horizon van vijf jaar. De naam beschrijft het beoogde karakter van de strategie. Het is geen garantie en impliceert geen kapitaalbescherming. De onderliggende samenstelling wordt beschreven in de definitieve investeringsdocumentatie. || Mizan Group Stable هي النهج الأطول أجلًا على المنصة: مدروس ومنضبط ويركز على الاستقرار على مدى خمس سنوات. ويصف الاسم الطابع المقصود للاستراتيجية، وهو ليس ضمانًا ولا يعني حماية رأس المال. وتوصف التركيبة الأساسية في وثائق الاستثمار النهائية.
+Algorithmic approach to Gold and FX markets || Algoritmische benadering van goud- en valutamarkten || نهج خوارزمي لأسواق الذهب والعملات
+One-year investment duration || Beleggingsduur van één jaar || مدة استثمار سنة واحدة
+Lowest minimum investment on the platform || Laagste minimale investering op het platform || أدنى حد أدنى للاستثمار على المنصة
+Property acquisition, development and renovation || Vastgoedverwerving, ontwikkeling en renovatie || شراء العقارات وتطويرها وترميمها
+Project financing and land acquisition || Projectfinanciering en grondverwerving || تمويل المشاريع وشراء الأراضي
+Three-year investment duration || Beleggingsduur van drie jaar || مدة استثمار ثلاث سنوات
+Longer-term, measured and disciplined || Langetermijn, bedachtzaam en gedisciplineerd || طويل الأجل، مدروس ومنضبط
+Five-year investment duration || Beleggingsduur van vijf jaar || مدة استثمار خمس سنوات
+Not capital protected; the name is not a guarantee || Niet kapitaalbeschermd; de naam is geen garantie || رأس المال غير محمي؛ والاسم ليس ضمانًا
+What is Mizan Group? || Wat is Mizan Group? || ما هي Mizan Group؟
+Mizan Group FZCO is an investment platform offering three investment approaches: Gold FX, Real Estate and Stable. Further company details will be provided here once verified. || Mizan Group FZCO is een investeringsplatform met drie investeringsbenaderingen: Gold FX, Vastgoed en Stable. Verdere bedrijfsgegevens worden hier vermeld zodra ze zijn geverifieerd. || Mizan Group FZCO منصة استثمار تقدم ثلاثة مناهج استثمارية: Gold FX والعقارات وStable. وستُضاف تفاصيل الشركة هنا بعد التحقق منها.
+Which investment strategies are available? || Welke investeringsstrategieën zijn beschikbaar? || ما هي استراتيجيات الاستثمار المتاحة؟
+Mizan Group Gold FX Algorithm Trader Premium, Mizan Group Real Estate and Mizan Group Stable. || Mizan Group Gold FX Algorithm Trader Premium, Mizan Group Real Estate en Mizan Group Stable. || Mizan Group Gold FX Algorithm Trader Premium وMizan Group Real Estate وMizan Group Stable.
+What is the minimum investment? || Wat is de minimale investering? || ما هو الحد الأدنى للاستثمار؟
+Gold FX: {a}. Real Estate: {b}. Stable: {c}. || Gold FX: {a}. Vastgoed: {b}. Stable: {c}. || Gold FX: {a}. العقارات: {b}. Stable: {c}.
+What does “up to X% per year” mean? || Wat betekent “tot X% per jaar”? || ماذا تعني عبارة «حتى X% سنويًا»؟
+It describes a potential maximum annual return: up to {g}% for Gold FX, up to {r}% for Real Estate and up to {s}% for Stable. It is a ceiling, not an expected or promised result. || Het beschrijft een mogelijk maximaal jaarlijks rendement: tot {g}% voor Gold FX, tot {r}% voor Vastgoed en tot {s}% voor Stable. Het is een plafond, geen verwacht of beloofd resultaat. || تصف أقصى عائد سنوي محتمل: حتى {g}% لـ Gold FX وحتى {r}% للعقارات وحتى {s}% لـ Stable. وهو حدّ أقصى وليس نتيجة متوقعة أو موعودًا بها.
+Are returns guaranteed? || Zijn rendementen gegarandeerd? || هل العوائد مضمونة؟
+No. || Nee. || لا.
+Can I lose money? || Kan ik geld verliezen? || هل يمكن أن أخسر المال؟
+Yes. You may lose part or all of your invested capital. See the Risks page for details. || Ja. U kunt een deel van of al uw geïnvesteerde kapitaal verliezen. Zie de pagina Risico's voor details. || نعم. قد تخسر جزءًا من رأس مالك المستثمر أو كله. راجع صفحة المخاطر للتفاصيل.
+What is Gold FX Algorithm Trader Premium? || Wat is Gold FX Algorithm Trader Premium? || ما هي Gold FX Algorithm Trader Premium؟
+What is Mizan Group Real Estate? || Wat is Mizan Group Real Estate? || ما هي Mizan Group Real Estate؟
+What is Mizan Group Stable? || Wat is Mizan Group Stable? || ما هي Mizan Group Stable؟
+What are the investment durations? || Wat zijn de looptijden van de investeringen? || ما هي مدد الاستثمار؟
+Can I withdraw early? || Kan ik vroegtijdig opnemen? || هل يمكنني السحب مبكرًا؟
+Early-withdrawal rights, if any, are not described on this website. || Eventuele rechten op vroegtijdige opname worden op deze website niet beschreven. || لا تُوصف حقوق السحب المبكر، إن وُجدت، على هذا الموقع.
+Exact conditions are established in the definitive investment documentation. || De exacte voorwaarden worden vastgelegd in de definitieve investeringsdocumentatie. || تُحدَّد الشروط الدقيقة في وثائق الاستثمار النهائية.
+How does the application process work? || Hoe werkt het aanvraagproces? || كيف تعمل عملية التقديم؟
+You explore and select a strategy, complete the investor application, go through identification and compliance checks, review and execute the documentation, then complete funding and registration. || U verkent en kiest een strategie, vult de investeerdersaanvraag in, doorloopt identificatie- en compliancecontroles, beoordeelt en ondertekent de documentatie en voltooit vervolgens de financiering en registratie. || تستكشف استراتيجية وتختارها، وتكمل طلب المستثمر، وتجتاز فحوصات التعريف والامتثال، وتراجع الوثائق وتوقّعها، ثم تكمل التمويل والتسجيل.
+Which identification / compliance checks apply? || Welke identificatie- en compliancecontroles zijn van toepassing? || ما فحوصات التعريف / الامتثال المطبقة؟
+Applicable identification and compliance checks will be requested during onboarding. The specific requirements depend on the investor and the final terms. || Toepasselijke identificatie- en compliancecontroles worden tijdens de onboarding gevraagd. De specifieke vereisten hangen af van de investeerder en de definitieve voorwaarden. || ستُطلب فحوصات التعريف والامتثال المطبقة أثناء إجراءات الانضمام. وتعتمد المتطلبات المحددة على المستثمر والشروط النهائية.
+Which documents will I receive? || Welke documenten ontvang ik? || ما الوثائق التي سأستلمها؟
+You will receive definitive investment documentation to review and execute. The exact set of documents is confirmed during onboarding. || U ontvangt definitieve investeringsdocumentatie om te beoordelen en te ondertekenen. De exacte set documenten wordt tijdens de onboarding bevestigd. || ستتلقى وثائق استثمار نهائية لمراجعتها وتوقيعها. وتُؤكَّد المجموعة الدقيقة من الوثائق أثناء إجراءات الانضمام.
+How are potential distributions handled? || Hoe worden mogelijke uitkeringen afgehandeld? || كيف تُعالَج التوزيعات المحتملة؟
+Distribution timing and mechanics are not described on this website. || De timing en werking van uitkeringen worden op deze website niet beschreven. || لا تُوصف مواعيد التوزيعات وآلياتها على هذا الموقع.
+How is capital repaid? || Hoe wordt kapitaal terugbetaald? || كيف يُسدَّد رأس المال؟
+Repayment of capital is not guaranteed and depends on the strategy and final terms. || Terugbetaling van kapitaal is niet gegarandeerd en hangt af van de strategie en de definitieve voorwaarden. || سداد رأس المال غير مضمون ويعتمد على الاستراتيجية والشروط النهائية.
+How can I speak with Mizan Group? || Hoe kan ik met Mizan Group spreken? || كيف يمكنني التحدث مع Mizan Group؟
+Use “Plan a call” to request a conversation, or visit the Contact page. || Gebruik “Plan een call” om een gesprek aan te vragen, of ga naar de pagina Contact. || استخدم «احجز مكالمة» لطلب محادثة، أو زر صفحة اتصل بنا.
+{name}: minimum {min}; potential return up to {r}% per year; duration {d}. || {name}: minimum {min}; potentieel rendement tot {r}% per jaar; looptijd {d}. || {name}: الحد الأدنى {min}؛ عائد محتمل حتى {r}% سنويًا؛ المدة {d}.
+Up to {n}% p.a. || Tot {n}% p.j. || حتى {n}% سنويًا
+Up to {n}% || Tot {n}% || حتى {n}%
+Potential return: up to {n}% per year || Potentieel rendement: tot {n}% per jaar || العائد المحتمل: حتى {n}% سنويًا
+From {min} · Potential return: up to {r}% per year · {dur} || Vanaf {min} · Potentieel rendement: tot {r}% per jaar · {dur} || ابتداءً من {min} · العائد المحتمل: حتى {r}% سنويًا · {dur}
+The minimum for {label} is {min}. || Het minimum voor {label} is {min}. || الحد الأدنى للاستثمار في {label} هو {min}.
+Select a strategy first to see its minimum. || Kies eerst een strategie om het minimum te zien. || اختر استراتيجية أولًا لمعرفة حدها الأدنى.
+Amount meets the minimum. || Het bedrag voldoet aan het minimum. || المبلغ يستوفي الحد الأدنى.
+Please choose a strategy to continue. || Kies een strategie om door te gaan. || يُرجى اختيار استراتيجية للمتابعة.
+Please enter an amount. || Voer een bedrag in. || يُرجى إدخال مبلغ.
+Please enter your first name. || Voer uw voornaam in. || يُرجى إدخال اسمك الأول.
+Please enter your last name. || Voer uw achternaam in. || يُرجى إدخال اسم العائلة.
+Please enter your country of residence. || Voer uw land van verblijf in. || يُرجى إدخال بلد إقامتك.
+Please enter your email address. || Voer uw e-mailadres in. || يُرجى إدخال بريدك الإلكتروني.
+That email address doesn’t look complete. || Dit e-mailadres lijkt niet compleet. || يبدو أن عنوان البريد الإلكتروني غير مكتمل.
+Please enter your phone number. || Voer uw telefoonnummer in. || يُرجى إدخال رقم هاتفك.
+Please enter a valid phone number. || Voer een geldig telefoonnummer in. || يُرجى إدخال رقم هاتف صالح.
+Please confirm every statement to continue. || Bevestig elke verklaring om door te gaan. || يُرجى تأكيد كل عبارة للمتابعة.
+Please choose a preferred date. || Kies een voorkeursdatum. || يُرجى اختيار تاريخ مفضل.
+Please choose a date from tomorrow onward. || Kies een datum vanaf morgen. || يُرجى اختيار تاريخ من الغد فصاعدًا.
+Please give consent so we can contact you. || Geef toestemming zodat wij contact met u kunnen opnemen. || يُرجى منح الموافقة لنتمكن من التواصل معك.
+Step {n} of {total} · {label} || Stap {n} van {total} · {label} || الخطوة {n} من {total} · {label}
+Amount || Bedrag || المبلغ
+Risk || Risico || المخاطر
+Review || Controle || المراجعة
+Submit || Verzenden || الإرسال
+Date & time || Datum & tijd || التاريخ والوقت
+Confirmation || Bevestiging || التأكيد
+Submit application || Aanvraag indienen || أرسل الطلب
+Request call || Call aanvragen || اطلب المكالمة
+Close || Sluiten || إغلاق
+Edit || Wijzigen || تعديل
+Edit {label} || {label} wijzigen || تعديل {label}
+Investor || Investeerder || المستثمر
+Phone || Telefoon || الهاتف
+Potential-return wording || Formulering potentieel rendement || صياغة العائد المحتمل
+Preferred contact || Voorkeurscontact || وسيلة الاتصال المفضلة
+Acknowledgements || Verklaringen || الإقرارات
+{a} of {b} confirmed || {a} van {b} bevestigd || تم تأكيد {a} من {b}
+Note || Opmerking || ملاحظة
+Preparing your application… || Uw aanvraag wordt voorbereid… || جارٍ إعداد طلبك…
+We couldn’t send your application || Wij konden uw aanvraag niet verzenden || تعذّر إرسال طلبك
+Something went wrong and your application was <b>not</b> sent. Please try again, or use Plan a call. || Er is iets misgegaan en uw aanvraag is <b>niet</b> verzonden. Probeer het opnieuw of gebruik Plan een call. || حدث خطأ ولم يتم إرسال طلبك. يُرجى المحاولة مرة أخرى أو استخدام احجز مكالمة.
+Try again || Opnieuw proberen || حاول مرة أخرى
+Application received || Aanvraag ontvangen || تم استلام الطلب
+Thank you, {name}. Your application for {strategy} has been sent. The next steps are identification and compliance checks, then documentation. || Dank u, {name}. Uw aanvraag voor {strategy} is verzonden. De volgende stappen zijn identificatie- en compliancecontroles, daarna documentatie. || شكرًا لك، {name}. تم إرسال طلبك لـ {strategy}. الخطوات التالية هي فحوصات التعريف والامتثال، ثم الوثائق.
+Application prepared, not submitted || Aanvraag voorbereid, niet verzonden || تم إعداد الطلب ولم يُرسل
+This website is currently a <b>demo frontend with no backend connected</b>, so your application was <b>not</b> sent to Mizan Group and nothing was stored. To proceed, please use <b>Plan a call</b> or contact Mizan Group directly. || Deze website is momenteel een <b>demo-frontend zonder gekoppelde backend</b>, dus uw aanvraag is <b>niet</b> naar Mizan Group verzonden en er is niets opgeslagen. Gebruik om verder te gaan <b>Plan een call</b> of neem rechtstreeks contact op met Mizan Group. || هذا الموقع حاليًا <b>واجهة تجريبية بدون خادم متصل</b>، لذلك <b>لم</b> يُرسل طلبك إلى Mizan Group ولم يُخزَّن أي شيء. للمتابعة، يُرجى استخدام <b>احجز مكالمة</b> أو التواصل مع Mizan Group مباشرة.
+Preparing your request… || Uw verzoek wordt voorbereid… || جارٍ إعداد طلبك…
+We couldn’t send your request || Wij konden uw verzoek niet verzenden || تعذّر إرسال طلبك
+Your request was <b>not</b> sent. Please try again. || Uw verzoek is <b>niet</b> verzonden. Probeer het opnieuw. || لم يتم إرسال طلبك. يُرجى المحاولة مرة أخرى.
+Call request received || Callverzoek ontvangen || تم استلام طلب المكالمة
+Thank you, {name}. We have received your request for {date} ({time}). This is a preference; we will confirm an actual time. || Dank u, {name}. Wij hebben uw verzoek voor {date} ({time}) ontvangen. Dit is een voorkeur; wij bevestigen een definitieve tijd. || شكرًا لك، {name}. استلمنا طلبك ليوم {date} ({time}). هذا تفضيل؛ وسنؤكد موعدًا فعليًا.
+Request prepared, no appointment booked || Verzoek voorbereid, geen afspraak geboekt || تم إعداد الطلب ولم يُحجز أي موعد
+This website is currently a <b>demo frontend with no scheduling backend connected</b>. Nothing was sent and <b>no appointment has been booked</b>. Please contact Mizan Group directly to arrange a call. || Deze website is momenteel een <b>demo-frontend zonder gekoppelde planningsbackend</b>. Er is niets verzonden en er is <b>geen afspraak geboekt</b>. Neem rechtstreeks contact op met Mizan Group om een call te plannen. || هذا الموقع حاليًا <b>واجهة تجريبية بدون نظام جدولة متصل</b>. لم يُرسل أي شيء و<b>لم يُحجز أي موعد</b>. يُرجى التواصل مع Mizan Group مباشرة لترتيب مكالمة.
+e.g. {n} || bijv. {n} || مثال: {n}
+Market data: ECB daily reference rates via Frankfurter. Not live. Not Mizan Group performance. Not investment advice. || Marktgegevens: dagelijkse referentiekoersen van de ECB via Frankfurter. Niet live. Geen prestatie van Mizan Group. Geen beleggingsadvies. || بيانات السوق: أسعار مرجعية يومية من البنك المركزي الأوروبي عبر Frankfurter. ليست مباشرة. ليست أداء Mizan Group. ليست نصيحة استثمارية.
+Market data: {source}. Updated {time}. Not Mizan Group performance. Not investment advice. || Marktgegevens: {source}. Bijgewerkt {time}. Geen prestatie van Mizan Group. Geen beleggingsadvies. || بيانات السوق: {source}. آخر تحديث {time}. ليست أداء Mizan Group. ليست نصيحة استثمارية.
+Market data unavailable right now. Prices will appear when the data source responds. || Marktgegevens zijn nu niet beschikbaar. Koersen verschijnen zodra de gegevensbron reageert. || بيانات السوق غير متاحة حاليًا. ستظهر الأسعار عند استجابة مصدر البيانات.
+Latest ECB reference rates, {date} || Laatste referentiekoersen van de ECB, {date} || أحدث الأسعار المرجعية للبنك المركزي الأوروبي، {date}

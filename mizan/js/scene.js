@@ -243,6 +243,7 @@
     var W = stage.clientWidth, H = stage.clientHeight;
     if (!W || !H || (W === builtW && Math.abs(H - builtH) < 40)) return;           /* stage hidden, or nothing changed */
     builtW = W; builtH = H;
+    if (stage.classList.contains("has-photos")) { var fl0 = $("pFloor"); if (fl0 && fl0.tagName === "CANVAS") { if (plates.floor) usePlate("pFloor", "floor"); else initFloor(fl0); } return; }
     [["pSky", "sky", drawSky], ["pFar", "far", drawFar], ["pMid", "mid", drawMid], ["pFacade", "facade", drawFacade]].forEach(function (p) {
       var el = $(p[0]); if (el && el.tagName === "CANVAS" && !usePlate(p[0], p[1])) p[2](el); });
     var tw = $("pTower"); if (tw && tw.tagName === "CANVAS" && !towerDrawn) { towerDrawn = true; if (!usePlate("pTower", "tower")) drawTower(tw); }
@@ -257,6 +258,7 @@
   function tick(t) { if (!run) return; var dt = Math.min(.1, (t - last) / 1000); if (dt >= .033) { last = t; floor && floor.frame(dt); } requestAnimationFrame(tick); }
   window.MizanScene = {
     ensure: ensure,
+    fallback: function () { stage.classList.remove("has-photos"); builtW = 0; towerDrawn = false; ensure(); },
     floor: function (on) { if (on === run) return; run = on; if (on && !reduce.matches) { last = performance.now(); requestAnimationFrame(tick); } else if (on && floor) floor.still(); }
   };
 })();

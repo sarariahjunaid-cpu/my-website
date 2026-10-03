@@ -3,7 +3,7 @@
 Vanilla HTML/CSS/JS, no build step. Open `mizan/index.html` or serve the folder statically.
 
 - `js/config.js` — single source of truth for strategy figures, `DEMO_CONTENT` flag, backend endpoints.
-- `js/app.js` — rendering, hash router, selector, comparison, FAQ, Start Investing and Plan een call funnels.
+- `js/app.js` — rendering, hash router, selector, comparison, FAQ, Start Investing and Plan a call funnels.
 - `css/styles.css` — design system.
 
 ## Before public launch
@@ -44,3 +44,15 @@ The scroll position then scrubs the video (skyline > into the building) and repl
 ffmpeg -ss 77 -t 25 -i source.mp4 -an -vf scale=1920:-2 -c:v libx264 -g 1 -crf 22 -pix_fmt yuv420p -movflags +faststart media/mizan-journey.mp4
 ```
 Do not use third-party footage without a licence. Still photographs can be used instead through `cinePlates`.
+
+## Photo journey (current hero)
+The hero scrolls through five supplied cityscape photographs (`img/plates/p1..p5`: wide skyline, towers, street canyon, aerial, building facade), then through the window into the generated trading floor and the strategy chamber. The photographs were provided by the site owner as screenshots, so they are low resolution (about 1284 px wide) and are upscaled; replace them with full-resolution licensed images for a sharper result. They contain third-party signage (Chinese-language building names and advertising) and appear to come from someone else's video: **confirm you have the rights to publish them** before launch. If a photo fails to load, the generated city is used instead.
+
+## Languages (English, Nederlands, Arabic)
+`js/i18n.js` holds the translations; the language buttons are in the top bar. The choice is remembered (localStorage key `mizan.lang`, language only), `?lang=nl` or `?lang=ar` forces one, and the browser language is used on first visit. Arabic switches the whole page to right-to-left. Strings without a translation fall back to English.
+To edit or add a translation, change the tables in `mizan/i18n/translations-*.txt` (one line each: `English || Nederlands || العربية`) and run `python3 mizan/i18n/build.py`. **The Dutch and Arabic texts were machine-written and must be reviewed by native speakers, and the risk, privacy, disclaimer and terms wording by legal counsel, before launch.** Figures are formatted per language (for example €25.000 in Dutch). The Dutch label for the call button is "Plan een call".
+
+## Market ticker
+The ticker at the bottom of the hero shows real quotes and refreshes itself (every 60 s by default). It never invents numbers: if no source responds it shows only a note that the data is unavailable.
+- Default source: ECB daily reference rates through Frankfurter (free, no key). These are published once per working day, so this is **not real-time**, and it is labelled that way on the page. It has no AED or gold; gold (XAU/USD) is tried from `api.gold-api.com` and shown only if it answers. Verify these third-party services and their terms before relying on them.
+- Real-time: set `market.endpoint` in `js/config.js` to your own backend route that proxies a licensed data provider (keep the API key on the server). The JSON format is documented at the top of `js/market.js`.
