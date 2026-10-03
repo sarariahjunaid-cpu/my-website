@@ -52,6 +52,7 @@
   }
 
   /* ---------- cards ---------- */
+  var SPARK = '<canvas class="spark" aria-hidden="true"></canvas><span class="spark-cap">Illustrative motion, not market data</span>';
   var CARD_CLASS = { goldFx: "t-gold", realEstate: "t-re", stable: "t-st" };
   function figures(k) {
     return '<dl class="fig"><div><dt>From</dt><dd>' + eur(S[k].minimum) + '</dd></div>' +
@@ -63,7 +64,7 @@
       var s = S[k];
       return '<article class="card ' + CARD_CLASS[k] + '"><span class="no">0' + (i + 1) + '</span>' + icon(k) +
         '<h3>' + esc(s.label) + '</h3><p class="sub">' + esc(s.name === "Mizan Group Gold FX Algorithm Trader Premium" ? "Algorithm Trader Premium" : "Mizan Group " + s.label) + '</p>' +
-        figures(k) +
+        (k === "goldFx" ? SPARK : "") + figures(k) +
         '<button class="btn btn-primary" type="button" data-open="invest" data-strategy="' + k + '" data-track="card_start_investing">Start Investing</button>' +
         '<button class="btn btn-secondary" type="button" data-open="call" data-strategy="' + k + '" data-track="card_plan_call">Plan een call</button>' +
         '<a class="btn-text" href="#/' + s.slug + '" style="text-align:center;margin-top:6px">Details</a></article>';
@@ -81,10 +82,11 @@
       $$(".tab", box).forEach(function (t) { var on = t.dataset.k === k; t.setAttribute("aria-selected", on); t.tabIndex = on ? 0 : -1; });
       var p = $("#selPanel", box); var s = S[k];
       p.setAttribute("aria-labelledby", "tab-" + k);
-      p.innerHTML = '<div class="top">' + icon(k) + '<div><h3>' + esc(s.name) + '</h3></div></div><p class="lead">' + esc(s.summary) + '</p>' +
+      p.innerHTML = '<div class="top">' + icon(k) + '<div><h3>' + esc(s.name) + '</h3></div></div><p class="lead">' + esc(s.summary) + '</p>' + (k === "goldFx" ? SPARK : "") +
         '<dl class="stats"><div><dt>Minimum investment</dt><dd>' + eur(s.minimum) + '</dd></div><div><dt>Potential annual return</dt><dd>' + ret(k) + '</dd></div><div><dt>Duration</dt><dd>' + years(s.duration) + '</dd></div></dl>' +
         '<p class="disc">' + esc(C.disclosure) + '</p>' +
         '<div class="btn-row"><button class="btn btn-primary" type="button" data-open="invest" data-strategy="' + k + '" data-track="selector_start_investing">Start Investing</button><a class="btn btn-secondary" href="#/' + s.slug + '">Details</a></div>';
+      if (window.MizanFx) window.MizanFx.initSparks();
       if (!initial) { p.removeAttribute("data-swap"); void p.offsetWidth; p.setAttribute("data-swap", ""); strategySelected(k, "selector"); }
     }
     box.addEventListener("click", function (e) { var t = e.target.closest(".tab"); if (t) show(t.dataset.k); });
@@ -179,7 +181,7 @@
       v.innerHTML = '<header class="phead"><div class="wrap"><span class="eyebrow">Strategy</span><h1 tabindex="-1">' + esc(s.name) + '</h1><p class="lead">' + esc(s.summary) + '</p></div></header>' +
         '<section class="s"><div class="wrap split"><div>' + icon(k, "ico-lg") + '<h2>' + esc(s.label) + '</h2><p class="lead" style="margin:16px 0">' + esc(s.description) + '</p><ul class="tick">' + s.points.map(function (p) { return '<li>' + esc(p) + '</li>'; }).join("") + '</ul>' +
         '<div class="btn-row"><button class="btn btn-primary" type="button" data-open="invest" data-strategy="' + k + '">Start Investing</button><button class="btn btn-secondary" type="button" data-open="call" data-strategy="' + k + '">Plan een call</button></div></div>' +
-        '<div class="card ' + CARD_CLASS[k] + '"><span class="no">Key terms</span>' + figures(k).replace('class="fig"', 'class="fig" style="margin-top:18px"') + '<p class="disc box">' + esc(C.disclosure) + '</p></div></div></section>' +
+        '<div class="card ' + CARD_CLASS[k] + '"><span class="no">Key terms</span>' + (k === "goldFx" ? SPARK : "") + figures(k).replace('class="fig"', 'class="fig" style="margin-top:18px"') + '<p class="disc box">' + esc(C.disclosure) + '</p></div></div></section>' +
         '<section class="s paper"><div class="wrap center"><h2 style="font-size:clamp(24px,3vw,34px)">Other strategies</h2><div class="btn-row" style="justify-content:center;margin-top:22px">' + others + '</div></div></section>';
     });
     $$("[data-terms]").forEach(function (t) {
@@ -440,8 +442,17 @@
   if (/[?&]dev=1/.test(location.search) || C.DEMO_CONTENT) { var db = $("#devbar"); if (db) db.hidden = false; }
   if (window.console && console.warn) console.warn("[Mizan] LEGAL RECONCILIATION REQUIRED: the Real Estate Investor Information Memorandum still states €50,000 minimum / 15% / 36 months. Current website terms: €25,000 / up to 14% / 3 years. Update the legal documents before public launch.");
 
+  /* ---------- decorative forex ticker (pair names only; no prices) ---------- */
+  (function () {
+    var tk = $("#tickerTrack"); if (!tk) return;
+    var pairs = ["EUR/USD", "XAU/USD", "GBP/USD", "USD/JPY", "USD/CHF", "AUD/USD", "USD/AED", "EUR/GBP"], paths = ["M0 14 L10 8 L20 12 L32 3 L44 10 L54 5 L64 9", "M0 6 L12 11 L22 5 L34 13 L46 7 L56 12 L64 4", "M0 10 L9 14 L21 6 L30 9 L43 2 L54 8 L64 6"];
+    var one = pairs.map(function (p, i) { return '<span class="tk">' + p + '<svg viewBox="0 0 64 18"><path d="' + paths[i % 3] + '" style="animation-delay:' + (i * .35) + 's"/></svg></span>'; }).join("");
+    tk.innerHTML = one + one;
+  })();
+
   /* ---------- init ---------- */
   renderCards(); renderSelector(); renderCompare(); renderProcess(); renderInsights(); renderFaq(); renderStrategyPages(); bindText();
   views = $$(".view"); viewIds = views.map(function (v) { return v.dataset.view; });
   route(true);
+  if (window.MizanFx) window.MizanFx.init();
 })();

@@ -22,3 +22,7 @@ Investor data is held in memory only; never stored in localStorage.
 
 ## Analytics
 `track()` emits `mizan:track` DOM events and fills `window.mizanEvents`. No third-party tracker is installed.
+
+## Logo and motion
+- `img/logo.svg` (vector trace), `img/logo.png` (transparent, 1200px) and white variants were made from the supplied stamp. Replace with the original vector artwork if available.
+- `js/fx.js`: hero skyline + forex-style candles, ticker, sparklines and the interactive Real Estate tower. All are synthetic and decorative, labelled "illustrative"; never bind them to real prices or returns. They pause off-screen and honour reduced motion.
