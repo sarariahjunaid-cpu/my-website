@@ -30,7 +30,8 @@
 
   /* ============ HERO: parallax wireframe skyline + streaming forex-style candles ============ */
   function heroFx(canvas) {
-    var host = canvas.parentElement.parentElement || canvas.parentElement; /* the .hero element */
+    var host = canvas.closest("#cineStage") || canvas.parentElement.parentElement || canvas.parentElement;
+    var showSkyline = canvas.dataset.skyline !== "off";
     var ctx = canvas.getContext("2d"); if (!ctx) return;
     var W = 0, H = 0, dpr = 1;
     var ptr = { x: 0, y: 0, tx: 0, ty: 0, cx: -1, cy: -1 };             /* eased + raw (canvas px) */
@@ -99,7 +100,7 @@
       });
     }
     function drawChart(t) {
-      var x0 = W * .38, x1 = W, top = H * .30, bot = H * .84, hgt = bot - top;
+      var x0 = W * .30, x1 = W, top = H * .26, bot = H * .78, hgt = bot - top;
       /* gentle drift of the chart with pointer */
       var ox = ptr.x * -10;
       ctx.save(); ctx.beginPath(); ctx.rect(x0, top - 20, x1 - x0, hgt + 40); ctx.clip();
@@ -132,7 +133,7 @@
       ptr.x += (ptr.tx - ptr.x) * .06; ptr.y += (ptr.ty - ptr.y) * .06;
       off -= dt * 22; while (off <= -CW) { off += CW; candles.shift(); candles.push(newCandle()); }
       ctx.clearRect(0, 0, W, H); hover = null;
-      drawSkyline(clock); drawChart(clock);
+      if (showSkyline) drawSkyline(clock); drawChart(clock);
     }
     loop(host, draw);
   }

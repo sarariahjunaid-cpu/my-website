@@ -35,11 +35,12 @@
 <a class="skip" href="#main">Skip to content</a>
 <div class="devbar" id="devbar" hidden>DEV: legal documentation must be reconciled with the current website terms before public launch (Real Estate memorandum still states the older €50,000 minimum, 15% and 36 months). See README.</div>
 
+<div class="cursor" id="cursor" aria-hidden="true"></div>
 <div class="topbar" role="note"><b>Mizan Group FZCO</b> · Investment Platform · Investing involves risk</div>
 
 <header class="site">
   <div class="wrap bar">
-    <a class="logo" href="#/" aria-label="Mizan Group FZCO, home"><img src="img/logo.svg" alt="" width="52" height="52"><span>Mizan<small>Group FZCO</small></span></a>
+    <a class="logo" href="#/" aria-label="Mizan Group FZCO, home"><img src="img/logo-white.svg" alt="" width="52" height="52"><span>Mizan<small>Group FZCO</small></span></a>
     <nav class="main" aria-label="Primary">
       <ul>
         <li><a href="#/how-it-works" data-nav="how-it-works">Invest</a></li>
@@ -75,18 +76,51 @@
 <!-- ===================== HOME ===================== -->
 <div class="view" data-view="home" data-title="Mizan Group FZCO | Investment Strategies" data-desc="Explore Mizan Group FZCO investment approaches across Gold FX, Real Estate and Stable strategies.">
 
-  <section class="hero" aria-labelledby="h-hero">
-    <div class="hero-bg" id="heroBg"><canvas id="heroCanvas" aria-hidden="true"></canvas></div>
-    <div class="wrap hero-in">
-      <span class="eyebrow">Mizan Group FZCO<br>Investment Platform</span>
-      <h1 id="h-hero">Three Strategies.<br>One Mizan Group.</h1>
-      <p class="sub">Choose an investment approach aligned with your objectives.</p>
-      <p class="support">Gold FX · Real Estate · Stable</p>
-      <div class="btn-row">
-        <button class="btn btn-primary" type="button" data-open="invest" data-track="hero_start_investing">Start Investing →</button>
-        <button class="btn btn-secondary" type="button" data-open="call" data-track="hero_plan_call">Plan een call</button>
+  <section class="cine" id="cine" aria-labelledby="h-hero">
+    <div class="cine-track" id="cineTrack">
+      <div class="cine-stage" id="cineStage">
+        <div class="c-sky"></div>
+        <div class="c-glow"></div>
+        <svg class="layer c-far" id="cFar" aria-hidden="true"></svg>
+        <div class="layer c-chart" aria-hidden="true"><canvas id="heroCanvas" data-skyline="off"></canvas></div>
+        <svg class="layer c-mid" id="cMid" aria-hidden="true"></svg>
+        <svg class="layer c-tower" id="cTower" aria-hidden="true"></svg>
+
+        <div class="layer chamber" id="chamber">
+          <div class="chamber-in">
+            <span class="eyebrow">Choose your strategy</span>
+            <h2 class="chamber-h">Step inside.</h2>
+            <div class="plates" id="chamberPlates"></div>
+            <p class="disc" id="chamberDisc"></p>
+          </div>
+        </div>
+
+        <div class="layer gate gl" aria-hidden="true"></div>
+        <div class="layer gate gr" aria-hidden="true"></div>
+
+        <div class="c-type">
+          <span class="eyebrow">Mizan Group FZCO<br>Investment Platform</span>
+          <h1 id="h-hero">Three Strategies.<br>One Mizan Group.</h1>
+          <p class="sub">Choose an investment approach aligned with your objectives.</p>
+          <p class="support">Gold FX · Real Estate · Stable</p>
+          <div class="btn-row">
+            <button class="btn btn-primary" type="button" data-open="invest" data-track="hero_start_investing">Start Investing →</button>
+            <button class="btn btn-secondary" type="button" data-open="call" data-track="hero_plan_call">Plan een call</button>
+          </div>
+          <p class="hero-note">Potential returns are not guaranteed. Investing involves risk, including the possible loss of part or all of the invested capital.</p>
+        </div>
+
+        <aside class="c-cap" aria-hidden="true"><small>The approach</small><p>Different horizons. One discipline.</p></aside>
+        <p class="c-illus" aria-hidden="true">Illustrative scene. Not a Mizan Group project and not market data.</p>
+        <a class="c-skip" href="#/home/choose">Skip intro</a>
+        <nav class="c-dots" aria-label="Jump to scene">
+          <button type="button" data-beat="0" aria-label="Scene 1: the skyline (key 1)">1</button>
+          <button type="button" data-beat="1" aria-label="Scene 2: the title leaves (key 2)">2</button>
+          <button type="button" data-beat="2" aria-label="Scene 3: the doors rise (key 3)">3</button>
+          <button type="button" data-beat="3" aria-label="Scene 4: the doors part (key 4)">4</button>
+          <button type="button" data-beat="4" aria-label="Scene 5: the strategies (key 5)">5</button>
+        </nav>
       </div>
-      <p class="hero-note">Potential returns are not guaranteed. Investing involves risk, including the possible loss of part or all of the invested capital.</p>
     </div>
     <div class="ticker" aria-hidden="true">
       <div class="ticker-track" id="tickerTrack"></div>
@@ -449,6 +483,7 @@
 
 <script src="js/config.js"></script>
 <script src="js/fx.js"></script>
+<script src="js/cine.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

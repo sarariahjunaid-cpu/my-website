@@ -436,7 +436,7 @@
   document.addEventListener("click", function (e) { var c = e.target.closest("[data-close-dlg]"); if (c) closeDlg(c.dataset.closeDlg === "inv" ? invDlg : callDlg); });
 
   /* ---------- hero image hook ---------- */
-  if (C.heroImage) { var hb = $("#heroBg"); hb.style.backgroundImage = "url('" + C.heroImage + "')"; var sv = $("svg", hb); if (sv) sv.remove(); }
+  if (C.heroImage && $("#heroBg")) { var hb = $("#heroBg"); hb.style.backgroundImage = "url('" + C.heroImage + "')"; var sv = $("svg", hb); if (sv) sv.remove(); }
 
   /* ---------- dev warnings ---------- */
   if (/[?&]dev=1/.test(location.search) || C.DEMO_CONTENT) { var db = $("#devbar"); if (db) db.hidden = false; }
@@ -448,6 +448,28 @@
     var pairs = ["EUR/USD", "XAU/USD", "GBP/USD", "USD/JPY", "USD/CHF", "AUD/USD", "USD/AED", "EUR/GBP"], paths = ["M0 14 L10 8 L20 12 L32 3 L44 10 L54 5 L64 9", "M0 6 L12 11 L22 5 L34 13 L46 7 L56 12 L64 4", "M0 10 L9 14 L21 6 L30 9 L43 2 L54 8 L64 6"];
     var one = pairs.map(function (p, i) { return '<span class="tk">' + p + '<svg viewBox="0 0 64 18"><path d="' + paths[i % 3] + '" style="animation-delay:' + (i * .35) + 's"/></svg></span>'; }).join("");
     tk.innerHTML = one + one;
+  })();
+
+  /* ---------- luxury interactions: scroll progress, pointer ring, card tilt ---------- */
+  (function () {
+    var root = document.documentElement, tk = false;
+    function prog() { tk = false; var h = root.scrollHeight - window.innerHeight; root.style.setProperty("--prog", h > 0 ? Math.min(1, window.pageYOffset / h).toFixed(4) : 0); }
+    window.addEventListener("scroll", function () { if (!tk) { tk = true; requestAnimationFrame(prog); } }, { passive: true }); prog();
+    var ring = $("#cursor"), fine = window.matchMedia("(hover:hover) and (pointer:fine)").matches;
+    if (ring && fine && !reduce.matches) {
+      var rx = 0, ry = 0, tx = 0, ty = 0, run = false;
+      function mv() { rx += (tx - rx) * .2; ry += (ty - ry) * .2; ring.style.transform = "translate3d(" + rx.toFixed(1) + "px," + ry.toFixed(1) + "px,0)"; if (Math.abs(tx - rx) > .3 || Math.abs(ty - ry) > .3) requestAnimationFrame(mv); else run = false; }
+      document.addEventListener("pointermove", function (e) { tx = e.clientX; ty = e.clientY; ring.classList.add("on"); if (!run) { run = true; requestAnimationFrame(mv); }
+        ring.classList.toggle("big", !!e.target.closest("a,button,.tab,.slab,[data-open]")); }, { passive: true });
+      document.addEventListener("pointerleave", function () { ring.classList.remove("on"); });
+    }
+    document.addEventListener("pointermove", function (e) {
+      var c = e.target.closest && e.target.closest(".card"); if (!c || reduce.matches || !fine) return;
+      var b = c.getBoundingClientRect(), x = (e.clientX - b.left) / b.width, y = (e.clientY - b.top) / b.height;
+      c.style.setProperty("--ry", ((x - .5) * 7).toFixed(2) + "deg"); c.style.setProperty("--rx", ((.5 - y) * 5).toFixed(2) + "deg");
+      c.style.setProperty("--mx", (x * 100).toFixed(1) + "%"); c.style.setProperty("--my", (y * 100).toFixed(1) + "%");
+    }, { passive: true });
+    document.addEventListener("pointerout", function (e) { var c = e.target.closest && e.target.closest(".card"); if (c && !c.contains(e.relatedTarget)) { c.style.setProperty("--rx", "0deg"); c.style.setProperty("--ry", "0deg"); } });
   })();
 
   /* ---------- init ---------- */
