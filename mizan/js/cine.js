@@ -81,7 +81,7 @@
     $("#chamberPlates").innerHTML = KEYS.map(function (k, i) {
       var s = S[k];
       return '<article class="plate" style="--i:' + i + '"><svg class="pi" aria-hidden="true"><use href="#' + ICON[k] + '"/></svg>' +
-        '<h3>' + esc(tr(s.label)) + '</h3><p class="ps">' + esc(k === "goldFx" ? "Algorithm Trader Premium" : "Mizan Group " + s.label) + "</p>" +
+        '<h3>' + esc(tr(s.label)) + '</h3><p class="ps">' + esc(k === "goldFx" ? "Algorithm Trader Premium" : "Mizan Capital " + s.label) + "</p>" +
         (k === "goldFx" ? '<canvas class="spark" aria-hidden="true"></canvas>' : "") +
         '<dl class="pf"><div><dt>' + esc(tr("From")) + "</dt><dd>" + eur(s.minimum) + "</dd></div><div><dt>" + esc(tr("Potential return")) + "</dt><dd>" + esc(tr("Up to {n}% p.a.", { n: s.potentialReturn })) + "</dd></div><div><dt>" + esc(tr("Duration")) + "</dt><dd>" + yrs(s.duration) + "</dd></div></dl>" +
         '<button class="btn btn-primary" type="button" data-open="invest" data-strategy="' + k + '" data-track="chamber_start_investing">' + esc(tr("Start Investing")) + '</button>' +

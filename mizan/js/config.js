@@ -34,7 +34,7 @@ window.MIZAN_CONFIG = {
     goldFx: {
       slug: "gold-fx",
       label: "Gold FX",
-      name: "Mizan Group Gold FX Algorithm Trader Premium",
+      name: "Mizan Capital Gold FX Algorithm Trader Premium",
       subtitle: "Algorithm Trader Premium",
       minimum: 10000,
       potentialReturn: 17,
@@ -42,7 +42,7 @@ window.MIZAN_CONFIG = {
       approach: "Algorithmic Gold / FX",
       summary: "An algorithmic Gold / FX investment strategy with a one-year horizon.",
       description:
-        "Mizan Group Gold FX Algorithm Trader Premium is an algorithmic Gold / FX investment strategy. " +
+        "Mizan Capital Gold FX Algorithm Trader Premium is an algorithmic Gold / FX investment strategy. " +
         "It is the shortest-duration approach on the platform. The methodology, instruments, risk controls and reporting " +
         "are set out in the definitive investment documentation, not on this website.",
       points: [
@@ -54,7 +54,7 @@ window.MIZAN_CONFIG = {
     realEstate: {
       slug: "real-estate",
       label: "Real Estate",
-      name: "Mizan Group Real Estate",
+      name: "Mizan Capital Real Estate",
       subtitle: "Real Estate",
       minimum: 25000,
       potentialReturn: 14,
@@ -62,7 +62,7 @@ window.MIZAN_CONFIG = {
       approach: "Real Estate",
       summary: "A three-year real-estate investment approach.",
       description:
-        "Mizan Group Real Estate is a three-year investment approach. Proceeds may be used for real-estate related purposes, " +
+        "Mizan Capital Real Estate is a three-year investment approach. Proceeds may be used for real-estate related purposes, " +
         "which can include property acquisition, development, renovation, refurbishment, project financing, land acquisition, " +
         "preparatory development costs, sales and marketing, and other relevant project costs. " +
         "Specific projects, locations and terms are defined in the definitive investment documentation.",
@@ -75,7 +75,7 @@ window.MIZAN_CONFIG = {
     stable: {
       slug: "stable",
       label: "Stable",
-      name: "Mizan Group Stable",
+      name: "Mizan Capital Stable",
       subtitle: "Stable",
       minimum: 50000,
       potentialReturn: 10,
@@ -83,7 +83,7 @@ window.MIZAN_CONFIG = {
       approach: "Longer-term Stable strategy",
       summary: "A longer-term, measured and disciplined approach over five years.",
       description:
-        "Mizan Group Stable is the longer-term approach on the platform: measured, disciplined and focused on stability over a five-year horizon. " +
+        "Mizan Capital Stable is the longer-term approach on the platform: measured, disciplined and focused on stability over a five-year horizon. " +
         "The name describes the intended character of the strategy. It is not a guarantee, and it does not imply protection of capital. " +
         "The underlying composition is described in the definitive investment documentation.",
       points: [

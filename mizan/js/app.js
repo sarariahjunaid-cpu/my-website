@@ -118,12 +118,12 @@
   }
 
   /* ---------- process, insights, FAQ ---------- */
-  var PROCESS = [["Explore", "Compare Mizan Group investment approaches."], ["Select", "Choose a strategy aligned with your objectives."], ["Apply", "Complete the investor application."], ["Identification & compliance", "Complete applicable identification and compliance checks."], ["Documentation", "Review and execute definitive investment documentation."], ["Funding & registration", "Complete funding and registration according to final terms."]];
+  var PROCESS = [["Explore", "Compare Mizan Capital investment approaches."], ["Select", "Choose a strategy aligned with your objectives."], ["Apply", "Complete the investor application."], ["Identification & compliance", "Complete applicable identification and compliance checks."], ["Documentation", "Review and execute definitive investment documentation."], ["Funding & registration", "Complete funding and registration according to final terms."]];
   function renderProcess() {
     var h = PROCESS.map(function (p, i) { return '<div class="step"><span class="n">0' + (i + 1) + '</span><h3>' + esc(tr(p[0])) + '</h3><p>' + esc(tr(p[1])) + '</p></div>'; }).join("");
     $$("[data-process]").forEach(function (e) { e.innerHTML = h; });
   }
-  var INSIGHTS = [["Dubai Real Estate", "Perspectives on the Dubai property market."], ["Gold Markets", "Context on gold as a market and asset."], ["FX Markets", "Notes on currency markets and volatility."], ["Investment Education", "Plain-language explainers on investing and risk."], ["Mizan Updates", "News and announcements from Mizan Group."]];
+  var INSIGHTS = [["Dubai Real Estate", "Perspectives on the Dubai property market."], ["Gold Markets", "Context on gold as a market and asset."], ["FX Markets", "Notes on currency markets and volatility."], ["Investment Education", "Plain-language explainers on investing and risk."], ["Mizan Updates", "News and announcements from Mizan Capital."]];
   function renderInsights() {
     var h = INSIGHTS.map(function (c) {
       return '<article class="ins"><div class="img"><svg viewBox="0 0 1100 640" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#i-sky"/></svg></div><div class="b"><span class="tag">' + esc(tr("Category")) + '</span><h3>' + esc(tr(c[0])) + '</h3><p>' + esc(tr(c[1])) + '</p><span class="pill">' + esc(tr("No articles published yet")) + '</span></div></article>';
@@ -140,15 +140,15 @@
     var g = S.goldFx, r = S.realEstate, s = S.stable;
     var docs = tr("Exact conditions are established in the definitive investment documentation.");
     return [
-      [tr("What is Mizan Group?"), tr("Mizan Capital is an investment platform offering three investment approaches: Gold FX, Real Estate and Stable. Further company details will be provided here once verified.")],
-      [tr("Which investment strategies are available?"), tr("Mizan Group Gold FX Algorithm Trader Premium, Mizan Group Real Estate and Mizan Group Stable.")],
+      [tr("What is Mizan Capital?"), tr("Mizan Capital is an investment platform offering three investment approaches: Gold FX, Real Estate and Stable. Further company details will be provided here once verified.")],
+      [tr("Which investment strategies are available?"), tr("Mizan Capital Gold FX Algorithm Trader Premium, Mizan Capital Real Estate and Mizan Capital Stable.")],
       [tr("What is the minimum investment?"), tr("Gold FX: {a}. Real Estate: {b}. Stable: {c}.", { a: eur(g.minimum), b: eur(r.minimum), c: eur(s.minimum) })],
       [tr("What does “up to X% per year” mean?"), tr("It describes a potential maximum annual return: up to {g}% for Gold FX, up to {r}% for Real Estate and up to {s}% for Stable. It is a ceiling, not an expected or promised result.", { g: g.potentialReturn, r: r.potentialReturn, s: s.potentialReturn })],
       [tr("Are returns guaranteed?"), tr("No.") + " " + tr(C.disclosure)],
       [tr("Can I lose money?"), tr("Yes. You may lose part or all of your invested capital. See the Risks page for details.")],
       [tr("What is Gold FX Algorithm Trader Premium?"), tr(g.description)],
-      [tr("What is Mizan Group Real Estate?"), tr(r.description)],
-      [tr("What is Mizan Group Stable?"), tr(s.description)],
+      [tr("What is Mizan Capital Real Estate?"), tr(r.description)],
+      [tr("What is Mizan Capital Stable?"), tr(s.description)],
       [tr("What are the investment durations?"), tr("Gold FX: {a}. Real Estate: {b}. Stable: {c}.", { a: years(g.duration), b: years(r.duration), c: years(s.duration) })],
       [tr("Can I withdraw early?"), tr("Early-withdrawal rights, if any, are not described on this website.") + " " + docs],
       [tr("How does the application process work?"), tr("You explore and select a strategy, complete the investor application, go through identification and compliance checks, review and execute the documentation, then complete funding and registration.")],
@@ -156,7 +156,7 @@
       [tr("Which documents will I receive?"), tr("You will receive definitive investment documentation to review and execute. The exact set of documents is confirmed during onboarding.")],
       [tr("How are potential distributions handled?"), tr("Distribution timing and mechanics are not described on this website.") + " " + docs],
       [tr("How is capital repaid?"), tr("Repayment of capital is not guaranteed and depends on the strategy and final terms.") + " " + docs],
-      [tr("How can I speak with Mizan Group?"), tr("Use “Plan a call” to request a conversation, or visit the Contact page.")]
+      [tr("How can I speak with Mizan Capital?"), tr("Use “Plan a call” to request a conversation, or visit the Contact page.")]
     ];
   }
   function renderFaq() {
@@ -398,7 +398,7 @@
       if (err) { st.innerHTML = '<h3>' + esc(tr("We couldn’t send your application")) + '</h3><p>' + tr("Something went wrong and your application was <b>not</b> sent. Please try again, or use Plan a call.") + '</p><div class="btn-row" style="margin-top:20px"><button class="btn btn-primary" type="button" id="invRetry">' + esc(tr("Try again")) + '</button></div>'; $("#invRetry").onclick = function () { submitInvestment(payload); }; return; }
       track("investment_form_completed", { strategy: payload.strategy, live: live });
       if (live) endState(st, "ok", tr("Application received"), tr("Thank you, {name}. Your application for {strategy} has been sent. The next steps are identification and compliance checks, then documentation.", { name: esc(payload.firstName), strategy: esc(payload.strategyName) }), "inv");
-      else endState(st, "demo", tr("Application prepared, not submitted"), tr("This website is currently a <b>demo frontend with no backend connected</b>, so your application was <b>not</b> sent to Mizan Group and nothing was stored. To proceed, please use <b>Plan a call</b> or contact Mizan Group directly.") + "<div class=\"note\">Developer: connect <code>endpoints.investmentApplication</code> (POST /api/investment-application) in config.js.</div>", "inv");
+      else endState(st, "demo", tr("Application prepared, not submitted"), tr("This website is currently a <b>demo frontend with no backend connected</b>, so your application was <b>not</b> sent to Mizan Capital and nothing was stored. To proceed, please use <b>Plan a call</b> or contact Mizan Capital directly.") + "<div class=\"note\">Developer: connect <code>endpoints.investmentApplication</code> (POST /api/investment-application) in config.js.</div>", "inv");
     };
     if (!url) { setTimeout(function () { done(false); }, 450); return; }
     post(url, payload).then(function () { done(true); }, function () { done(false, true); });
@@ -452,7 +452,7 @@
       if (err) { st.innerHTML = '<h3>' + esc(tr("We couldn’t send your request")) + '</h3><p>' + tr("Your request was <b>not</b> sent. Please try again.") + '</p><div class="btn-row" style="margin-top:20px"><button class="btn btn-primary" type="button" id="callRetry">' + esc(tr("Try again")) + '</button></div>'; $("#callRetry").onclick = submitCall; return; }
       track("call_form_completed", { strategy: payload.strategyOfInterest, live: live });
       if (live) endState(st, "ok", tr("Call request received"), tr("Thank you, {name}. We have received your request for {date} ({time}). This is a preference; we will confirm an actual time.", { name: esc(payload.firstName), date: esc(payload.preferredDate), time: esc(tr(payload.preferredTime)) }), "call");
-      else endState(st, "demo", tr("Request prepared, no appointment booked"), tr("This website is currently a <b>demo frontend with no scheduling backend connected</b>. Nothing was sent and <b>no appointment has been booked</b>. Please contact Mizan Group directly to arrange a call.") + "<div class=\"note\">Developer: connect <code>endpoints.callRequest</code>, or embed Cal.com / Calendly / a custom scheduling API.</div>", "call");
+      else endState(st, "demo", tr("Request prepared, no appointment booked"), tr("This website is currently a <b>demo frontend with no scheduling backend connected</b>. Nothing was sent and <b>no appointment has been booked</b>. Please contact Mizan Capital directly to arrange a call.") + "<div class=\"note\">Developer: connect <code>endpoints.callRequest</code>, or embed Cal.com / Calendly / a custom scheduling API.</div>", "call");
     };
     if (!url) { setTimeout(function () { done(false); }, 450); return; }
     post(url, payload).then(function () { done(true); }, function () { done(false, true); });
@@ -473,6 +473,44 @@
     var one = pairs.map(function (p, i) { return '<span class="tk">' + p + '<svg viewBox="0 0 64 18"><path d="' + paths[i % 3] + '" style="animation-delay:' + (i * .35) + 's"/></svg></span>'; }).join("");
     tk.innerHTML = one + one;
   })();
+
+
+  /* ---------- About: mission, vision and values explorer ---------- */
+  var BAL = [
+    ["mission", "Our mission", "To help our clients build and preserve wealth over the long term through disciplined, balanced investing, and to treat every investor fairly and openly."],
+    ["vision", "Our vision", "To be the investment partner our clients trust for generations, recognised for sound judgement, clear communication and lasting relationships."],
+    ["balance", "Balance", "We weigh risk and reward with equal care, giving as much attention to protecting capital as to pursuing returns."],
+    ["discipline", "Discipline", "We follow a defined investment process and apply it consistently, in rising and falling markets alike."],
+    ["transparency", "Transparency", "We set out terms and risks plainly, so every investor can make an informed decision."],
+    ["partnership", "Partnership", "We think in years, not quarters, and build our investor relationships accordingly."]
+  ], balKey = "mission";
+  function showBal(k) {
+    var box = $("#balBox"); if (!box) return;
+    var row = BAL.filter(function (r) { return r[0] === k; })[0]; if (!row) return; balKey = k;
+    $$(".tab", box).forEach(function (b) { var on = b.dataset.k === k; b.setAttribute("aria-selected", on); b.tabIndex = on ? 0 : -1; });
+    var p = $("#balPanel", box); p.setAttribute("aria-labelledby", "btab-" + k);
+    p.innerHTML = '<small class="bal-kicker">' + esc(tr(row[1])) + '</small><p class="bal-text">' + esc(tr(row[2])) + '</p>';
+    p.removeAttribute("data-swap"); void p.offsetWidth; p.setAttribute("data-swap", "");
+  }
+  function renderBal() {
+    var box = $("#balBox"); if (!box) return;
+    box.innerHTML = '<div class="tabs" role="tablist" aria-label="' + esc(tr("Mission, vision and values")) + '">' + BAL.map(function (r) {
+      return '<button class="tab" role="tab" type="button" id="btab-' + r[0] + '" data-k="' + r[0] + '" aria-selected="' + (r[0] === balKey) + '" aria-controls="balPanel" tabindex="' + (r[0] === balKey ? 0 : -1) + '">' + esc(tr(r[1])) + '<span aria-hidden="true">' + (I.lang() === "ar" ? "←" : "→") + '</span></button>';
+    }).join("") + '</div><div class="panel" id="balPanel" role="tabpanel" aria-live="polite"></div>';
+    if (!box.dataset.bound) {
+      box.dataset.bound = "1";
+      box.addEventListener("click", function (e) { var b = e.target.closest(".tab"); if (b) showBal(b.dataset.k); });
+      box.addEventListener("keydown", function (e) {
+        var b = e.target.closest(".tab"); if (!b) return;
+        var i = BAL.map(function (r) { return r[0]; }).indexOf(b.dataset.k), n = null, rtl = I.lang() === "ar";
+        if (e.key === (rtl ? "ArrowLeft" : "ArrowRight") || e.key === "ArrowDown") n = (i + 1) % BAL.length;
+        else if (e.key === (rtl ? "ArrowRight" : "ArrowLeft") || e.key === "ArrowUp") n = (i + BAL.length - 1) % BAL.length;
+        if (n !== null) { e.preventDefault(); showBal(BAL[n][0]); var nb = $("#btab-" + BAL[n][0]); if (nb) nb.focus(); }
+      });
+    }
+    showBal(balKey);
+  }
+  document.addEventListener("click", function (e) { var c = e.target.closest && e.target.closest("[data-bal]"); if (c) { balKey = c.dataset.bal; showBal(balKey); } });
 
   /* ---------- luxury interactions: scroll progress, pointer ring, card tilt ---------- */
   (function () {
@@ -498,7 +536,7 @@
 
   /* ---------- init ---------- */
   function renderAll() {
-    renderCards(); renderSelector(); renderCompare(); renderProcess(); renderInsights(); renderFaq(); renderStrategyPages(); bindText();
+    renderCards(); renderBal(); renderSelector(); renderCompare(); renderProcess(); renderInsights(); renderFaq(); renderStrategyPages(); bindText();
     buildInvOptions(); buildRisks(); buildCallOptions(); syncBurger(); refreshMeta();
     if (inv) { invGo(inv.step); updInvButtons(); syncAmtHelp(); if (inv.step === 5) renderReview(); }
     if (call) { callGo(call.step); updCall(); }
