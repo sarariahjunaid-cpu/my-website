@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Mizan Group FZCO | Investment Strategies</title>
-<meta name="description" content="Explore Mizan Group FZCO investment approaches across Gold FX, Real Estate and Stable strategies.">
+<title>Mizan Capital | Investment Strategies</title>
+<meta name="description" content="Explore Mizan Capital investment approaches across Gold FX, Real Estate and Stable strategies.">
 <meta name="theme-color" content="#0B1B33">
 <!-- Remove before public launch: keeps the unfinished site (placeholders, unreconciled legal docs) out of search engines. -->
 <meta name="robots" content="noindex, nofollow">
 <link rel="canonical" href="https://[YOUR-DOMAIN]/">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Mizan Group FZCO">
-<meta property="og:title" content="Mizan Group FZCO | Investment Strategies">
-<meta property="og:description" content="Explore Mizan Group FZCO investment approaches across Gold FX, Real Estate and Stable strategies.">
+<meta property="og:site_name" content="Mizan Capital">
+<meta property="og:title" content="Mizan Capital | Investment Strategies">
+<meta property="og:description" content="Explore Mizan Capital investment approaches across Gold FX, Real Estate and Stable strategies.">
 <meta property="og:url" content="https://[YOUR-DOMAIN]/">
 <meta name="twitter:card" content="summary">
 <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
@@ -37,7 +37,7 @@
 
 <div class="cursor" id="cursor" aria-hidden="true"></div>
 <div class="topbar" role="note">
-  <span class="tb-text"><b>Mizan Group FZCO</b> · Investment Platform · Investing involves risk</span>
+  <span class="tb-text"><b>Mizan Capital</b> · Investment Platform · Investing involves risk</span>
   <div class="lang" role="group" aria-label="Language">
     <button type="button" data-lang="en" lang="en" aria-pressed="true" title="English">EN</button>
     <button type="button" data-lang="nl" lang="nl" aria-pressed="false" title="Nederlands">NL</button>
@@ -81,17 +81,17 @@
 <main id="main" tabindex="-1">
 
 <!-- ===================== HOME ===================== -->
-<div class="view" data-view="home" data-title="Mizan Group FZCO | Investment Strategies" data-desc="Explore Mizan Group FZCO investment approaches across Gold FX, Real Estate and Stable strategies.">
+<div class="view" data-view="home" data-title="Mizan Capital | Investment Strategies" data-desc="Explore Mizan Capital investment approaches across Gold FX, Real Estate and Stable strategies.">
 
   <section class="cine" id="cine" aria-labelledby="h-hero">
     <div class="cine-track" id="cineTrack">
       <div class="cine-stage" id="cineStage">
-        <canvas class="layer c-sky" id="pSky" aria-hidden="true"></canvas>
-        <canvas class="layer c-far" id="pFar" aria-hidden="true"></canvas>
-        <canvas class="layer c-mid" id="pMid" aria-hidden="true"></canvas>
-        <canvas class="layer c-tower" id="pTower" width="1400" height="3000" aria-hidden="true"></canvas>
-        <canvas class="layer c-facade" id="pFacade" aria-hidden="true"></canvas>
-        <canvas class="layer c-floor" id="pFloor" aria-hidden="true"></canvas>
+        <div class="c-sky"></div>
+        <div class="c-glow"></div>
+        <svg class="layer c-far" id="cFar" aria-hidden="true"></svg>
+        <div class="layer c-chart" aria-hidden="true"><canvas id="heroCanvas" data-skyline="off"></canvas></div>
+        <svg class="layer c-mid" id="cMid" aria-hidden="true"></svg>
+        <svg class="layer c-tower" id="cTower" aria-hidden="true"></svg>
 
         <div class="layer chamber" id="chamber">
           <div class="chamber-in">
@@ -102,8 +102,11 @@
           </div>
         </div>
 
+        <div class="layer gate gl" aria-hidden="true"></div>
+        <div class="layer gate gr" aria-hidden="true"></div>
+
         <div class="c-type">
-          <span class="eyebrow">Mizan Group FZCO<br>Investment Platform</span>
+          <span class="eyebrow">Mizan Capital<br>Investment Platform</span>
           <h1 id="h-hero">Three Strategies.<br>One Mizan Group.</h1>
           <p class="sub">Choose an investment approach aligned with your objectives.</p>
           <p class="support">Gold FX · Real Estate · Stable</p>
@@ -114,23 +117,21 @@
           <p class="hero-note">Potential returns are not guaranteed. Investing involves risk, including the possible loss of part or all of the invested capital.</p>
         </div>
 
-        <aside class="c-cap a" aria-hidden="true"><small>The city</small><p>Different horizons. One discipline.</p></aside>
-        <aside class="c-cap b" aria-hidden="true"><small>The floor</small><p>Where markets move, we keep a steady hand.</p></aside>
-        <p class="c-illus" aria-hidden="true">Cityscape photographs: illustrative, not Mizan Group projects. Trading screens show simulated data only.</p>
+        <aside class="c-cap" aria-hidden="true"><small>The approach</small><p>Different horizons. One discipline.</p></aside>
+        <p class="c-illus" aria-hidden="true">Illustrative scene. Not a Mizan Group project and not market data.</p>
         <a class="c-skip" href="#/home/choose">Skip intro</a>
         <nav class="c-dots" aria-label="Jump to scene">
           <button type="button" data-beat="0" aria-label="Scene 1: the skyline (key 1)">1</button>
-          <button type="button" data-beat="1" aria-label="Scene 2: the towers (key 2)">2</button>
-          <button type="button" data-beat="2" aria-label="Scene 3: the street canyon (key 3)">3</button>
-          <button type="button" data-beat="3" aria-label="Scene 4: the aerial and the facade (key 4)">4</button>
-          <button type="button" data-beat="4" aria-label="Scene 5: through the window to the trading floor (key 5)">5</button>
-          <button type="button" data-beat="5" aria-label="Scene 6: the strategies (key 6)">6</button>
+          <button type="button" data-beat="1" aria-label="Scene 2: the title leaves (key 2)">2</button>
+          <button type="button" data-beat="2" aria-label="Scene 3: the doors rise (key 3)">3</button>
+          <button type="button" data-beat="3" aria-label="Scene 4: the doors part (key 4)">4</button>
+          <button type="button" data-beat="4" aria-label="Scene 5: the strategies (key 5)">5</button>
         </nav>
-        <div class="ticker" role="region" aria-label="Foreign exchange rates">
-          <div class="ticker-track" id="tickerTrack"></div>
-          <span class="ticker-note" id="tickerNote"></span>
-        </div>
       </div>
+    </div>
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track" id="tickerTrack"></div>
+      <span class="ticker-note">Illustrative animation. Not live or historical market data.</span>
     </div>
   </section>
 
@@ -160,35 +161,13 @@
 
   <section class="s dark" id="clarity" aria-labelledby="h-clar">
     <div class="wrap">
-      <div class="sec-head reveal"><span class="eyebrow">Our commitment to you</span><h2 id="h-clar">Steady by design.</h2><p class="lead">Trust is earned through openness. Before you invest, you will know exactly what you are investing in, what the risks are, and who you are dealing with.</p></div>
-      <div class="pillars trust-pillars reveal">
-        <div>
-          <span class="p-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/><path d="M9 12h7M9 15.5h7M9 19h4"/></svg></span>
-          <h3>Clear terms, up front</h3>
-          <p>For every strategy you can see the minimum investment, how long your money stays invested and the potential returns, written in plain language before you commit.</p>
-        </div>
-        <div>
-          <span class="p-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v16M7 20h10"/><path d="M4 8h16"/><path d="M6 8l-3 6a3 3 0 0 0 6 0zM18 8l-3 6a3 3 0 0 0 6 0z"/></svg></span>
-          <h3>Honest about risk</h3>
-          <p>All investments carry risk, including the possible loss of the money you invest. We explain each risk openly on a dedicated page, never in the small print.</p>
-        </div>
-        <div>
-          <span class="p-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11"/><path d="M3.5 6l1.5 1.5L7.5 5M3.5 12l1.5 1.5L7.5 11M3.5 18l1.5 1.5L7.5 17"/></svg></span>
-          <h3>A careful, orderly process</h3>
-          <p>Identity and compliance checks come first, then your documents, always in the same order. The process is clear from the first step to the last.</p>
-        </div>
-        <div>
-          <span class="p-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span>
-          <h3>A real person to talk to</h3>
-          <p>Speak directly with the Mizan Group team before making any decision, ask anything you need to, and take the time you need.</p>
-        </div>
+      <div class="sec-head reveal"><span class="eyebrow">A structured investment process</span><h2 id="h-clar">Built around clarity.</h2><p class="lead">We would rather show you the terms plainly than ask you to take anything on trust.</p></div>
+      <div class="pillars reveal">
+        <div><h3>Clear terms</h3><p>Minimum investment, duration and potential-return wording are stated up front for every strategy.</p></div>
+        <div><h3>Risk, in plain view</h3><p>Risks are explained on a dedicated page, not hidden in small print.</p></div>
+        <div><h3>Structured onboarding</h3><p>Application, identification and compliance checks, then documentation, in a defined order.</p></div>
+        <div><h3>Personal contact</h3><p>Prospective investors can speak with Mizan Group before they decide.</p></div>
       </div>
-      <dl class="trust-strip reveal" aria-label="Company details">
-        <div><dt>Company</dt><dd>Mizan Group FZCO</dd></div>
-        <div><dt>Registered in</dt><dd>Dubai, United Arab Emirates</dd></div>
-        <div><dt>Company registration no.</dt><dd><span class="ph">[NUMBER]</span></dd></div>
-        <div><dt>Regulatory status</dt><dd><a href="#/disclaimer">Read our regulatory information</a></dd></div>
-      </dl>
     </div>
   </section>
 
@@ -285,7 +264,7 @@
 </div>
 
 <!-- ===================== STRATEGIES ===================== -->
-<div class="view" data-view="strategies" data-title="Investment Strategies | Mizan Group FZCO" data-desc="Compare Mizan Group FZCO investment strategies: Gold FX, Real Estate and Stable.">
+<div class="view" data-view="strategies" data-title="Investment Strategies | Mizan Capital" data-desc="Compare Mizan Capital investment strategies: Gold FX, Real Estate and Stable.">
   <header class="phead"><div class="wrap"><span class="eyebrow">Strategies</span><h1 tabindex="-1">Three strategies. One Mizan Group.</h1><p class="lead">Choose an investment approach aligned with your objectives.</p></div></header>
   <section class="s paper"><div class="wrap"><div class="cards" data-cards></div><p class="disc box" style="margin:36px auto 0" data-disclosure></p></div></section>
   <section class="s"><div class="wrap"><div data-cmp></div></div></section>
@@ -297,7 +276,7 @@
 <div class="view" data-view="stable" data-strategy-page="stable"></div>
 
 <!-- ===================== HOW IT WORKS ===================== -->
-<div class="view" data-view="how-it-works" data-title="How Investing Works | Mizan Group FZCO" data-desc="The Mizan Group FZCO investment process, from exploring strategies to funding and registration.">
+<div class="view" data-view="how-it-works" data-title="How Investing Works | Mizan Capital" data-desc="The Mizan Capital investment process, from exploring strategies to funding and registration.">
   <header class="phead"><div class="wrap"><span class="eyebrow">Invest</span><h1 tabindex="-1">How investing works.</h1><p class="lead">A structured process, in a defined order.</p></div></header>
   <section class="s"><div class="wrap"><div class="steps" data-process></div></div></section>
   <section class="s paper"><div class="wrap prose">
@@ -310,7 +289,7 @@
 </div>
 
 <!-- ===================== ABOUT ===================== -->
-<div class="view" data-view="about" data-title="About | Mizan Group FZCO" data-desc="About Mizan Group FZCO: multiple investment approaches, a disciplined process and clear documentation.">
+<div class="view" data-view="about" data-title="About | Mizan Capital" data-desc="About Mizan Capital: multiple investment approaches, a disciplined process and clear documentation.">
   <header class="phead"><div class="wrap"><span class="eyebrow">About</span><h1 tabindex="-1">About Mizan Group.</h1><p class="lead">Multiple investment approaches. One disciplined way of working.</p></div></header>
   <section class="s"><div class="wrap split">
     <div class="frame"><svg viewBox="0 0 1100 640" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#i-sky"/></svg><p>[Image slot: supply professional corporate / founder image]</p></div>
@@ -331,13 +310,13 @@
 </div>
 
 <!-- ===================== INSIGHTS ===================== -->
-<div class="view" data-view="insights" data-title="Market &amp; Insights | Mizan Group FZCO" data-desc="Market commentary and investment education from Mizan Group FZCO.">
+<div class="view" data-view="insights" data-title="Market &amp; Insights | Mizan Capital" data-desc="Market commentary and investment education from Mizan Capital.">
   <header class="phead"><div class="wrap"><span class="eyebrow">Market &amp; Insights</span><h1 tabindex="-1">Perspectives and education.</h1><p class="lead">Editorial content will be published here. Nothing on this page is investment advice.</p></div></header>
   <section class="s paper"><div class="wrap"><div class="grid3" data-insights></div><div data-demo-slot></div></div></section>
 </div>
 
 <!-- ===================== RISKS ===================== -->
-<div class="view" data-view="risks" data-title="Risk Disclosure | Mizan Group FZCO" data-desc="Risks of investing with Mizan Group FZCO, including possible loss of part or all of invested capital.">
+<div class="view" data-view="risks" data-title="Risk Disclosure | Mizan Capital" data-desc="Risks of investing with Mizan Capital, including possible loss of part or all of invested capital.">
   <header class="phead"><div class="wrap"><span class="eyebrow">Risk disclosure</span><h1 tabindex="-1">Investors may lose part or all of their investment.</h1><p class="lead" data-disclosure></p></div></header>
   <section class="s"><div class="wrap">
     <div class="sec-head"><h2>General risks</h2></div>
@@ -360,13 +339,13 @@
 </div>
 
 <!-- ===================== FAQ ===================== -->
-<div class="view" data-view="faq" data-title="FAQ | Mizan Group FZCO" data-desc="Frequently asked questions about Mizan Group FZCO investment strategies, terms and process.">
+<div class="view" data-view="faq" data-title="FAQ | Mizan Capital" data-desc="Frequently asked questions about Mizan Capital investment strategies, terms and process.">
   <header class="phead"><div class="wrap"><span class="eyebrow">FAQ</span><h1 tabindex="-1">Frequently asked questions.</h1></div></header>
   <section class="s"><div class="wrap"><div class="faq" data-faq="all"></div></div></section>
 </div>
 
 <!-- ===================== CONTACT ===================== -->
-<div class="view" data-view="contact" data-title="Contact | Mizan Group FZCO" data-desc="Contact Mizan Group FZCO for general or investment enquiries, or plan a call.">
+<div class="view" data-view="contact" data-title="Contact | Mizan Capital" data-desc="Contact Mizan Capital for general or investment enquiries, or plan a call.">
   <header class="phead"><div class="wrap"><span class="eyebrow">Contact</span><h1 tabindex="-1">Get in touch.</h1></div></header>
   <section class="s"><div class="wrap">
     <div class="contact-grid">
@@ -375,18 +354,18 @@
       <div class="cbox"><h3>Plan a call</h3><p>Request a conversation at a time that suits you.</p><button class="btn btn-secondary" type="button" data-open="call">Plan a call</button></div>
     </div>
     <div class="prose" style="margin-top:56px"><h2>Company information</h2>
-      <p>Mizan Group FZCO</p>
+      <p>Mizan Capital</p>
       <p><span class="ph">[REGISTERED ADDRESS]</span><br><span class="ph">[COMPANY REGISTRATION NUMBER]</span><br><span class="ph">[PHONE NUMBER]</span></p>
       <p class="disc">Contact details are placeholders and must be replaced with verified company information before launch.</p></div>
   </div></section>
 </div>
 
 <!-- ===================== LEGAL ===================== -->
-<div class="view" data-view="privacy" data-title="Privacy Policy | Mizan Group FZCO" data-desc="Privacy policy and cookie information for Mizan Group FZCO.">
+<div class="view" data-view="privacy" data-title="Privacy Policy | Mizan Capital" data-desc="Privacy policy and cookie information for Mizan Capital.">
   <header class="phead"><div class="wrap"><span class="eyebrow">Legal</span><h1 tabindex="-1">Privacy Policy</h1></div></header>
   <section class="s"><div class="wrap prose">
     <p class="disc box"><b>Draft template.</b> Must be reviewed and completed by legal counsel before launch.</p>
-    <h2>Controller</h2><p>Mizan Group FZCO, <span class="ph">[REGISTERED ADDRESS]</span>, <span class="ph">[COMPANY REGISTRATION NUMBER]</span>. Privacy contact: <span class="ph">[PRIVACY CONTACT]</span>.</p>
+    <h2>Controller</h2><p>Mizan Capital, <span class="ph">[REGISTERED ADDRESS]</span>, <span class="ph">[COMPANY REGISTRATION NUMBER]</span>. Privacy contact: <span class="ph">[PRIVACY CONTACT]</span>.</p>
     <h2>Information we may collect</h2><p>Contact details and enquiry content that you choose to submit through forms. Investor application data is only processed through a secure backend once one is configured.</p>
     <h2>Purpose and legal basis</h2><p><span class="ph">[PURPOSES AND LEGAL BASES — TO BE CONFIRMED]</span></p>
     <h2>Retention and your rights</h2><p><span class="ph">[RETENTION PERIODS AND DATA-SUBJECT RIGHTS — TO BE CONFIRMED]</span></p>
@@ -394,18 +373,18 @@
     <p><a href="#/terms">Terms / Investment Information</a> · <a href="#/disclaimer">Disclaimer</a></p>
   </div></section>
 </div>
-<div class="view" data-view="disclaimer" data-title="Disclaimer | Mizan Group FZCO" data-desc="Important information and disclaimer for Mizan Group FZCO.">
+<div class="view" data-view="disclaimer" data-title="Disclaimer | Mizan Capital" data-desc="Important information and disclaimer for Mizan Capital.">
   <header class="phead"><div class="wrap"><span class="eyebrow">Legal</span><h1 tabindex="-1">Disclaimer</h1></div></header>
   <section class="s"><div class="wrap prose">
     <p class="disc box"><b>Draft template.</b> Must be reviewed and completed by legal counsel before launch.</p>
-    <h2>Not advice or an offer</h2><p>This website provides general information about Mizan Group FZCO investment approaches. It is not investment, legal or tax advice and is not an offer or solicitation where one would be unlawful.</p>
+    <h2>Not advice or an offer</h2><p>This website provides general information about Mizan Capital investment approaches. It is not investment, legal or tax advice and is not an offer or solicitation where one would be unlawful.</p>
     <h2>Risk</h2><p data-disclosure></p>
     <h2>Returns</h2><p>"Up to" figures describe a potential maximum annual return. They are not guarantees, forecasts or promises of future performance.</p>
     <h2>Regulatory status</h2><p><span class="ph">[REGULATORY STATUS — TO BE CONFIRMED BY COMPANY]</span> No authority or third party has endorsed or approved Mizan Group on the basis of this website.</p>
     <h2>Governing law</h2><p><span class="ph">[GOVERNING LAW — TO BE CONFIRMED]</span></p>
   </div></section>
 </div>
-<div class="view" data-view="terms" data-title="Terms / Investment Information | Mizan Group FZCO" data-desc="Terms and investment information for Mizan Group FZCO.">
+<div class="view" data-view="terms" data-title="Terms / Investment Information | Mizan Capital" data-desc="Terms and investment information for Mizan Capital.">
   <header class="phead"><div class="wrap"><span class="eyebrow">Legal</span><h1 tabindex="-1">Terms / Investment Information</h1></div></header>
   <section class="s"><div class="wrap prose">
     <p class="disc box"><b>Draft template.</b> Must be reviewed and completed by legal counsel before launch.</p>
@@ -428,7 +407,7 @@
     </div>
     <div class="fbottom">
       <p><b>Investment risk.</b> <span data-disclosure></span></p>
-      <p>© Mizan Group FZCO. <span class="ph">[COMPANY REGISTRATION NUMBER]</span> · <span class="ph">[REGISTERED ADDRESS]</span></p>
+      <p>© Mizan Capital. <span class="ph">[COMPANY REGISTRATION NUMBER]</span> · <span class="ph">[REGISTERED ADDRESS]</span></p>
     </div>
   </div>
 </footer>
@@ -512,9 +491,7 @@
 <script src="js/config.js"></script>
 <script src="js/i18n.js"></script>
 <script src="js/fx.js"></script>
-<script src="js/scene.js"></script>
 <script src="js/cine.js"></script>
 <script src="js/app.js"></script>
-<script src="js/market.js"></script>
 </body>
 </html>

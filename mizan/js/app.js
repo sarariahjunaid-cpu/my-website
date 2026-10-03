@@ -1,5 +1,5 @@
 /*
- * MIZAN GROUP FZCO — front-end behaviour (vanilla JS, no dependencies).
+ * MIZAN CAPITAL — front-end behaviour (vanilla JS, no dependencies).
  *
  * DEMO FRONTEND vs PRODUCTION BACKEND
  *   This file contains NO backend. Forms never claim a submission was received unless
@@ -140,7 +140,7 @@
     var g = S.goldFx, r = S.realEstate, s = S.stable;
     var docs = tr("Exact conditions are established in the definitive investment documentation.");
     return [
-      [tr("What is Mizan Group?"), tr("Mizan Group FZCO is an investment platform offering three investment approaches: Gold FX, Real Estate and Stable. Further company details will be provided here once verified.")],
+      [tr("What is Mizan Group?"), tr("Mizan Capital is an investment platform offering three investment approaches: Gold FX, Real Estate and Stable. Further company details will be provided here once verified.")],
       [tr("Which investment strategies are available?"), tr("Mizan Group Gold FX Algorithm Trader Premium, Mizan Group Real Estate and Mizan Group Stable.")],
       [tr("What is the minimum investment?"), tr("Gold FX: {a}. Real Estate: {b}. Stable: {c}.", { a: eur(g.minimum), b: eur(r.minimum), c: eur(s.minimum) })],
       [tr("What does “up to X% per year” mean?"), tr("It describes a potential maximum annual return: up to {g}% for Gold FX, up to {r}% for Real Estate and up to {s}% for Stable. It is a ceiling, not an expected or promised result.", { g: g.potentialReturn, r: r.potentialReturn, s: s.potentialReturn })],
@@ -183,7 +183,7 @@
   function renderStrategyPages() {
     $$("[data-strategy-page]").forEach(function (v) {
       var k = v.getAttribute("data-strategy-page"), s = S[k];
-      v.setAttribute("data-title", s.name + " | Mizan Group FZCO");
+      v.setAttribute("data-title", s.name + " | Mizan Capital");
       v.setAttribute("data-desc", tr(s.summary) + " " + tr("Potential returns are not guaranteed; investing involves risk."));
       var others = KEYS.filter(function (x) { return x !== k; }).map(function (x) { return '<a class="btn btn-secondary" href="#/' + S[x].slug + '">' + esc(tr(S[x].label)) + '</a>'; }).join("");
       v.innerHTML = '<header class="phead"><div class="wrap"><span class="eyebrow">' + esc(tr("Strategy")) + '</span><h1 tabindex="-1">' + esc(s.name) + '</h1><p class="lead">' + esc(tr(s.summary)) + '</p></div></header>' +
@@ -202,7 +202,7 @@
   var viewIds = views.map(function (v) { return v.dataset.view; });
   function refreshMeta(v) {
     v = v || $(".view.active"); if (!v) return;
-    document.title = v.dataset.title || "Mizan Group FZCO";
+    document.title = v.dataset.title || "Mizan Capital";
     var md = $('meta[name="description"]'); if (md && v.dataset.desc) md.setAttribute("content", v.dataset.desc);
   }
   function route(initial) {
@@ -465,6 +465,14 @@
   /* ---------- dev warnings ---------- */
   if (/[?&]dev=1/.test(location.search) || C.DEMO_CONTENT) { var db = $("#devbar"); if (db) db.hidden = false; }
   if (window.console && console.warn) console.warn("[Mizan] LEGAL RECONCILIATION REQUIRED: the Real Estate Investor Information Memorandum still states €50,000 minimum / 15% / 36 months. Current website terms: €25,000 / up to 14% / 3 years. Update the legal documents before public launch.");
+
+  /* ---------- decorative forex ticker (pair names only; no prices) ---------- */
+  (function () {
+    var tk = $("#tickerTrack"); if (!tk) return;
+    var pairs = ["EUR/USD", "XAU/USD", "GBP/USD", "USD/JPY", "USD/CHF", "AUD/USD", "USD/AED", "EUR/GBP"], paths = ["M0 14 L10 8 L20 12 L32 3 L44 10 L54 5 L64 9", "M0 6 L12 11 L22 5 L34 13 L46 7 L56 12 L64 4", "M0 10 L9 14 L21 6 L30 9 L43 2 L54 8 L64 6"];
+    var one = pairs.map(function (p, i) { return '<span class="tk">' + p + '<svg viewBox="0 0 64 18"><path d="' + paths[i % 3] + '" style="animation-delay:' + (i * .35) + 's"/></svg></span>'; }).join("");
+    tk.innerHTML = one + one;
+  })();
 
   /* ---------- luxury interactions: scroll progress, pointer ring, card tilt ---------- */
   (function () {

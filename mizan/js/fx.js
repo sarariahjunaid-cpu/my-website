@@ -1,5 +1,5 @@
 /*
- * MIZAN GROUP FZCO — motion & interactive visuals (vanilla JS, canvas/SVG, no libraries).
+ * MIZAN CAPITAL — motion & interactive visuals (vanilla JS, canvas/SVG, no libraries).
  *
  * IMPORTANT: everything drawn here is DECORATIVE and SYNTHETIC.
  *   - The forex-style candles and sparklines are a random walk, not market data, not performance.

@@ -15,3 +15,6 @@ Dubai, United Arab Emirates || Dubai, Verenigde Arabische Emiraten || دبي، �
 Company registration no. || Bedrijfsregistratienummer || رقم تسجيل الشركة
 [NUMBER] || [NUMMER] || [الرقم]
 Read our regulatory information || Lees onze regelgevingsinformatie || اقرأ معلوماتنا التنظيمية
+The approach || De aanpak || نهجنا
+Illustrative scene. Not a Mizan Group project and not market data. || Illustratieve weergave. Geen project van Mizan Group en geen marktdata. || مشهد توضيحي. ليس مشروعًا لدى Mizan Group وليس بيانات سوق.
+Illustrative animation. Not live or historical market data. || Illustratieve animatie. Geen actuele of historische marktdata. || رسوم توضيحية متحركة. ليست بيانات سوق حالية أو تاريخية.

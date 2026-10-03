@@ -1,5 +1,5 @@
 /*
- * MIZAN GROUP FZCO — central configuration
+ * MIZAN CAPITAL — central configuration
  * ---------------------------------------------------------------
  * Single source of truth for every strategy figure on the site.
  * Cards, selector, comparison, strategy pages, forms, FAQ and
@@ -29,13 +29,6 @@ window.MIZAN_CONFIG = {
     callRequest: null,             // e.g. "/api/call-request"  or a Cal.com / Calendly embed
     // Future: CRM, email notifications, KYC/AML provider, document signing, investor portal.
   },
-
-  /*
-   * Market ticker. Leave endpoint null to use free ECB daily reference rates (not real-time).
-   * For real-time prices, point endpoint at YOUR backend route that proxies a licensed provider
-   * (keep the API key on the server). See the comment block at the top of js/market.js for the JSON shape.
-   */
-  market: { endpoint: null, refreshSeconds: 60 },
 
   strategies: {
     goldFx: {
