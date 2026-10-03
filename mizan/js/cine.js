@@ -12,8 +12,9 @@
  * Beats over TRACK px of scroll:
  *   b0 settle        0-700     the wide skyline settles; title and lede hold
  *   b1 type out    760-1300    title rises and fades, tracking opens
- *   photos 1..5   1100-4800    skyline > towers > street canyon > aerial > facade; each fades in and pushes in
- *   z3 floor      4700-5300    through the window into the trading floor (simulated screens)
+ *   z1 push-in    1100-3000    camera pushes through the skyline toward the tower
+ *   z2 facade     2600-4200    tower resolves into its glass facade and fills the frame
+ *   z3 floor      3900-4800    through the window into the trading floor (simulated screens)
  *   z4 chamber    5400-6000    floor defocuses; the strategy chamber appears (then holds, interactive)
  */
 (function () {
@@ -77,13 +78,13 @@
   /* Photo journey: each plate has a window [fadeInStart, fadeInEnd] .. [fadeOutStart, fadeOutEnd]. */
   var PH = [[0, 0, 1100, 1500], [1100, 1500, 1900, 2300], [1900, 2300, 2700, 3100], [2700, 3100, 3500, 3900], [3500, 3900, 4300, 4800]];
   function apply(s) {
-    var b1 = range(s, 760, 1300), z3 = range(s, 4700, 5300), z4 = range(s, 5400, 6000);
+    var b1 = range(s, 760, 1300), z3 = range(s, 3900, 4800), z4 = range(s, 5400, 6000);
     set("--b0", range(s, 0, 700)); set("--b1", b1);
     PH.forEach(function (p, i) {
       var v = (p[1] > 0 ? range(s, p[0], p[1]) : 1) * (1 - range(s, p[2], p[3]));
       set("--v" + (i + 1), v); set("--q" + (i + 1), clamp((s - p[0]) / (p[3] - p[0]), 0, 1));
     });
-    set("--z3", z3); set("--z4", z4);
+    set("--z1", range(s, 1100, 3000)); set("--z2", range(s, 2600, 4200)); set("--z3", z3); set("--z4", z4);
     set("--c1", range(s, 1600, 1800) * (1 - range(s, 2200, 2400))); set("--c2", range(s, 5000, 5200) * (1 - range(s, 5500, 5700)));
     stage.classList.toggle("p-type-off", b1 > .55);
     stage.classList.toggle("p-chamber", z4 > .5);

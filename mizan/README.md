@@ -45,7 +45,7 @@ ffmpeg -ss 77 -t 25 -i source.mp4 -an -vf scale=1920:-2 -c:v libx264 -g 1 -crf 2
 ```
 Do not use third-party footage without a licence. Still photographs can be used instead through `cinePlates`.
 
-## Photo journey (current hero)
+## Generated-city journey (current hero)
 The hero scrolls through five supplied cityscape photographs (`img/plates/p1..p5`: wide skyline, towers, street canyon, aerial, building facade), then through the window into the generated trading floor and the strategy chamber. The photographs were provided by the site owner as screenshots, so they are low resolution (about 1284 px wide) and are upscaled; replace them with full-resolution licensed images for a sharper result. They contain third-party signage (Chinese-language building names and advertising) and appear to come from someone else's video: **confirm you have the rights to publish them** before launch. If a photo fails to load, the generated city is used instead.
 
 ## Languages (English, Nederlands, Arabic)
