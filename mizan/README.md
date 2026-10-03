@@ -1,3 +1,5 @@
+> **Current hero:** the original generated skyline, tower and glass-door journey (identical to `mizan-v1-generated/`), with only the Mizan Capital logo, the English "Plan a call" wording and the EN / NL / AR language switcher added. The photo journey, trading-floor scene and live market ticker were removed; parts of this file about them describe options that are no longer in the page.
+
 # Mizan Group FZCO website (demo frontend)
 
 Vanilla HTML/CSS/JS, no build step. Open `mizan/index.html` or serve the folder statically.
