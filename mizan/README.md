@@ -26,3 +26,7 @@ Investor data is held in memory only; never stored in localStorage.
 ## Logo and motion
 - `img/logo.svg` (vector trace), `img/logo.png` (transparent, 1200px) and white variants were made from the supplied stamp. Replace with the original vector artwork if available.
 - `js/fx.js`: hero skyline + forex-style candles, ticker, sparklines and the interactive Real Estate tower. All are synthetic and decorative, labelled "illustrative"; never bind them to real prices or returns. They pause off-screen and honour reduced motion.
+
+## Version 2 hero: skyline > skyscraper > trading floor
+`js/scene.js` draws the plates in code: dusk sky, two city layers, a glass skyscraper, a close-up curtain-wall facade and an animated trading floor with simulated screens. `js/cine.js` maps scroll to CSS variables (the camera zoom). The previous generated hero is saved untouched in `mizan-v1-generated/`.
+For true photographic realism, supply photographs through `MIZAN_CONFIG.cinePlates = { sky, far, mid, tower, facade, floor }` in `config.js` (any plate you set replaces the generated canvas; use transparent PNG/WebP for `far`, `mid` and `tower`). Trading-floor screens always show simulated data: never use real prices or performance there.

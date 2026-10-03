@@ -476,5 +476,6 @@
   renderCards(); renderSelector(); renderCompare(); renderProcess(); renderInsights(); renderFaq(); renderStrategyPages(); bindText();
   views = $$(".view"); viewIds = views.map(function (v) { return v.dataset.view; });
   route(true);
+  if (window.MizanScene) window.MizanScene.ensure();
   if (window.MizanFx) window.MizanFx.init();
 })();
