@@ -474,6 +474,44 @@
     tk.innerHTML = one + one;
   })();
 
+
+  /* ---------- About: mission, vision and values explorer ---------- */
+  var BAL = [
+    ["mission", "Our mission", "To help our clients build and preserve wealth over the long term through disciplined, balanced investing, and to treat every investor fairly and openly."],
+    ["vision", "Our vision", "To be the investment partner our clients trust for generations, recognised for sound judgement, clear communication and lasting relationships."],
+    ["balance", "Balance", "We weigh risk and reward with equal care, giving as much attention to protecting capital as to pursuing returns."],
+    ["discipline", "Discipline", "We follow a defined investment process and apply it consistently, in rising and falling markets alike."],
+    ["transparency", "Transparency", "We set out terms and risks plainly, so every investor can make an informed decision."],
+    ["partnership", "Partnership", "We think in years, not quarters, and build our investor relationships accordingly."]
+  ], balKey = "mission";
+  function showBal(k) {
+    var box = $("#balBox"); if (!box) return;
+    var row = BAL.filter(function (r) { return r[0] === k; })[0]; if (!row) return; balKey = k;
+    $$(".tab", box).forEach(function (b) { var on = b.dataset.k === k; b.setAttribute("aria-selected", on); b.tabIndex = on ? 0 : -1; });
+    var p = $("#balPanel", box); p.setAttribute("aria-labelledby", "btab-" + k);
+    p.innerHTML = '<small class="bal-kicker">' + esc(tr(row[1])) + '</small><p class="bal-text">' + esc(tr(row[2])) + '</p>';
+    p.removeAttribute("data-swap"); void p.offsetWidth; p.setAttribute("data-swap", "");
+  }
+  function renderBal() {
+    var box = $("#balBox"); if (!box) return;
+    box.innerHTML = '<div class="tabs" role="tablist" aria-label="' + esc(tr("Mission, vision and values")) + '">' + BAL.map(function (r) {
+      return '<button class="tab" role="tab" type="button" id="btab-' + r[0] + '" data-k="' + r[0] + '" aria-selected="' + (r[0] === balKey) + '" aria-controls="balPanel" tabindex="' + (r[0] === balKey ? 0 : -1) + '">' + esc(tr(r[1])) + '<span aria-hidden="true">' + (I.lang() === "ar" ? "←" : "→") + '</span></button>';
+    }).join("") + '</div><div class="panel" id="balPanel" role="tabpanel" aria-live="polite"></div>';
+    if (!box.dataset.bound) {
+      box.dataset.bound = "1";
+      box.addEventListener("click", function (e) { var b = e.target.closest(".tab"); if (b) showBal(b.dataset.k); });
+      box.addEventListener("keydown", function (e) {
+        var b = e.target.closest(".tab"); if (!b) return;
+        var i = BAL.map(function (r) { return r[0]; }).indexOf(b.dataset.k), n = null, rtl = I.lang() === "ar";
+        if (e.key === (rtl ? "ArrowLeft" : "ArrowRight") || e.key === "ArrowDown") n = (i + 1) % BAL.length;
+        else if (e.key === (rtl ? "ArrowRight" : "ArrowLeft") || e.key === "ArrowUp") n = (i + BAL.length - 1) % BAL.length;
+        if (n !== null) { e.preventDefault(); showBal(BAL[n][0]); var nb = $("#btab-" + BAL[n][0]); if (nb) nb.focus(); }
+      });
+    }
+    showBal(balKey);
+  }
+  document.addEventListener("click", function (e) { var c = e.target.closest && e.target.closest("[data-bal]"); if (c) { balKey = c.dataset.bal; showBal(balKey); } });
+
   /* ---------- luxury interactions: scroll progress, pointer ring, card tilt ---------- */
   (function () {
     var root = document.documentElement, tk = false;
@@ -498,7 +536,7 @@
 
   /* ---------- init ---------- */
   function renderAll() {
-    renderCards(); renderSelector(); renderCompare(); renderProcess(); renderInsights(); renderFaq(); renderStrategyPages(); bindText();
+    renderCards(); renderBal(); renderSelector(); renderCompare(); renderProcess(); renderInsights(); renderFaq(); renderStrategyPages(); bindText();
     buildInvOptions(); buildRisks(); buildCallOptions(); syncBurger(); refreshMeta();
     if (inv) { invGo(inv.step); updInvButtons(); syncAmtHelp(); if (inv.step === 5) renderReview(); }
     if (call) { callGo(call.step); updCall(); }
