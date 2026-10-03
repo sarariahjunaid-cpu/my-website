@@ -3,7 +3,7 @@
 Vanilla HTML/CSS/JS, no build step. Open `mizan/index.html` or serve the folder statically.
 
 - `js/config.js` — single source of truth for strategy figures, `DEMO_CONTENT` flag, backend endpoints.
-- `js/app.js` — rendering, hash router, selector, comparison, FAQ, Start Investing and Plan een call funnels.
+- `js/app.js` — rendering, hash router, selector, comparison, FAQ, Start Investing and Plan a call funnels.
 - `css/styles.css` — design system.
 
 ## Before public launch
@@ -26,3 +26,33 @@ Investor data is held in memory only; never stored in localStorage.
 ## Logo and motion
 - `img/logo.svg` (vector trace), `img/logo.png` (transparent, 1200px) and white variants were made from the supplied stamp. Replace with the original vector artwork if available.
 - `js/fx.js`: hero skyline + forex-style candles, ticker, sparklines and the interactive Real Estate tower. All are synthetic and decorative, labelled "illustrative"; never bind them to real prices or returns. They pause off-screen and honour reduced motion.
+
+## Version 2 hero: skyline > skyscraper > trading floor
+`js/scene.js` draws the plates in code: dusk sky, two city layers, a glass skyscraper, a close-up curtain-wall facade and an animated trading floor with simulated screens. `js/cine.js` maps scroll to CSS variables (the camera zoom). The previous generated hero is saved untouched in `mizan-v1-generated/`.
+For true photographic realism, supply photographs through `MIZAN_CONFIG.cinePlates = { sky, far, mid, tower, facade, floor }` in `config.js` (any plate you set replaces the generated canvas; use transparent PNG/WebP for `far`, `mid` and `tower`). Trading-floor screens always show simulated data: never use real prices or performance there.
+
+## Logo
+The supplied "Mizan Capital" horizontal logo is used in the header and footer (`img/logo-capital*.svg/png`: vector trace and transparent PNG; the `-light` version has white lettering for dark backgrounds; `img/favicon.svg` is the column mark). Replace with the original vector artwork if you have it. The legal entity name on the site is still "Mizan Group FZCO"; say if the brand name in headings and legal text should change to Mizan Capital too.
+
+## Real footage (exact shot, scroll-scrubbed)
+The generated city cannot be photographically real. To use a real shot, supply a video you have the rights to (stock, drone or your own footage) and set in `js/config.js`:
+```js
+cineVideo: { src: "media/mizan-journey.mp4", start: 0, end: null }   // end null = full length
+```
+The scroll position then scrubs the video (skyline > into the building) and replaces the generated scenes; the strategy chamber still appears at the end. For smooth scrubbing, re-encode with every frame a keyframe, for example (start at 1:17, 25 s):
+```
+ffmpeg -ss 77 -t 25 -i source.mp4 -an -vf scale=1920:-2 -c:v libx264 -g 1 -crf 22 -pix_fmt yuv420p -movflags +faststart media/mizan-journey.mp4
+```
+Do not use third-party footage without a licence. Still photographs can be used instead through `cinePlates`.
+
+## Photo journey (current hero)
+The hero scrolls through five supplied cityscape photographs (`img/plates/p1..p5`: wide skyline, towers, street canyon, aerial, building facade), then through the window into the generated trading floor and the strategy chamber. The photographs were provided by the site owner as screenshots, so they are low resolution (about 1284 px wide) and are upscaled; replace them with full-resolution licensed images for a sharper result. They contain third-party signage (Chinese-language building names and advertising) and appear to come from someone else's video: **confirm you have the rights to publish them** before launch. If a photo fails to load, the generated city is used instead.
+
+## Languages (English, Nederlands, Arabic)
+`js/i18n.js` holds the translations; the language buttons are in the top bar. The choice is remembered (localStorage key `mizan.lang`, language only), `?lang=nl` or `?lang=ar` forces one, and the browser language is used on first visit. Arabic switches the whole page to right-to-left. Strings without a translation fall back to English.
+To edit or add a translation, change the tables in `mizan/i18n/translations-*.txt` (one line each: `English || Nederlands || العربية`) and run `python3 mizan/i18n/build.py`. **The Dutch and Arabic texts were machine-written and must be reviewed by native speakers, and the risk, privacy, disclaimer and terms wording by legal counsel, before launch.** Figures are formatted per language (for example €25.000 in Dutch). The Dutch label for the call button is "Plan een call".
+
+## Market ticker
+The ticker at the bottom of the hero shows real quotes and refreshes itself (every 60 s by default). It never invents numbers: if no source responds it shows only a note that the data is unavailable.
+- Default source: ECB daily reference rates through Frankfurter (free, no key). These are published once per working day, so this is **not real-time**, and it is labelled that way on the page. It has no AED or gold; gold (XAU/USD) is tried from `api.gold-api.com` and shown only if it answers. Verify these third-party services and their terms before relying on them.
+- Real-time: set `market.endpoint` in `js/config.js` to your own backend route that proxies a licensed data provider (keep the API key on the server). The JSON format is documented at the top of `js/market.js`.
