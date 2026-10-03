@@ -51,20 +51,34 @@
   }).join("");
   $("#chamberDisc").textContent = C.disclosure;
 
+  /* ---------- optional real footage: scroll scrubs the video ---------- */
+  var CV = C.cineVideo, vid = null;
+  if (CV && CV.src) {
+    stage.classList.add("has-video");
+    vid = document.createElement("video"); vid.className = "layer c-video"; vid.muted = true; vid.playsInline = true; vid.preload = "auto"; vid.setAttribute("aria-hidden", "true");
+    if (CV.poster) vid.poster = CV.poster; vid.src = CV.src; stage.insertBefore(vid, $("#chamber"));
+  }
+  function scrub(s) {
+    if (!vid || !vid.duration || vid.seeking) return;
+    var a = CV.start || 0, b = CV.end || vid.duration, t = a + (b - a) * range(s, CV.from || 500, CV.to || 3500);
+    if (Math.abs(vid.currentTime - t) > .03) vid.currentTime = t;
+  }
+
   /* ---------- mapping + loop ---------- */
   var target = 0, cur = 0, ptx = 0, pty = 0, pcx = 0, pcy = 0, ticking = false;
   function active() { return track.offsetParent !== null; }
   function readScroll() { if (!active()) return; target = clamp(-track.getBoundingClientRect().top, 0, TRACK); }
   function set(k, v) { stage.style.setProperty(k, v.toFixed(4)); }
   function apply(s) {
-    var b1 = range(s, 760, 1300), z3 = range(s, 2700, 3400), z4 = range(s, 3500, 4100);
-    set("--b0", range(s, 0, 700)); set("--b1", b1); set("--z1", range(s, 1200, 2300)); set("--z2", range(s, 2000, 3000));
+    var b1 = range(s, 760, 1300), z3 = range(s, 2500, 3200), z4 = range(s, 3500, 4100);
+    set("--b0", range(s, 0, 700)); set("--b1", b1); set("--z1", range(s, 1200, 2300)); set("--z2", range(s, 2000, 2900));
     set("--z3", z3); set("--z4", z4);
     set("--c1", range(s, 1500, 1750) * (1 - range(s, 2150, 2400))); set("--c2", range(s, 3000, 3250) * (1 - range(s, 3500, 3700)));
     stage.classList.toggle("p-type-off", b1 > .55);
     stage.classList.toggle("p-chamber", z4 > .5);
     stage.classList.toggle("p-end", s > TRACK - 40);
-    if (window.MizanScene) window.MizanScene.floor(z3 > .02);
+    if (window.MizanScene && !vid) window.MizanScene.floor(z3 > .02);
+    scrub(s);
   }
   function frame() {
     ticking = false;

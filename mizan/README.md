@@ -30,3 +30,17 @@ Investor data is held in memory only; never stored in localStorage.
 ## Version 2 hero: skyline > skyscraper > trading floor
 `js/scene.js` draws the plates in code: dusk sky, two city layers, a glass skyscraper, a close-up curtain-wall facade and an animated trading floor with simulated screens. `js/cine.js` maps scroll to CSS variables (the camera zoom). The previous generated hero is saved untouched in `mizan-v1-generated/`.
 For true photographic realism, supply photographs through `MIZAN_CONFIG.cinePlates = { sky, far, mid, tower, facade, floor }` in `config.js` (any plate you set replaces the generated canvas; use transparent PNG/WebP for `far`, `mid` and `tower`). Trading-floor screens always show simulated data: never use real prices or performance there.
+
+## Logo
+The supplied "Mizan Capital" horizontal logo is used in the header and footer (`img/logo-capital*.svg/png`: vector trace and transparent PNG; the `-light` version has white lettering for dark backgrounds; `img/favicon.svg` is the column mark). Replace with the original vector artwork if you have it. The legal entity name on the site is still "Mizan Group FZCO"; say if the brand name in headings and legal text should change to Mizan Capital too.
+
+## Real footage (exact shot, scroll-scrubbed)
+The generated city cannot be photographically real. To use a real shot, supply a video you have the rights to (stock, drone or your own footage) and set in `js/config.js`:
+```js
+cineVideo: { src: "media/mizan-journey.mp4", start: 0, end: null }   // end null = full length
+```
+The scroll position then scrubs the video (skyline > into the building) and replaces the generated scenes; the strategy chamber still appears at the end. For smooth scrubbing, re-encode with every frame a keyframe, for example (start at 1:17, 25 s):
+```
+ffmpeg -ss 77 -t 25 -i source.mp4 -an -vf scale=1920:-2 -c:v libx264 -g 1 -crf 22 -pix_fmt yuv420p -movflags +faststart media/mizan-journey.mp4
+```
+Do not use third-party footage without a licence. Still photographs can be used instead through `cinePlates`.

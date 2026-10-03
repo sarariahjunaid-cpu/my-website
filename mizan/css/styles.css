@@ -57,7 +57,8 @@ section.s{padding:clamp(64px,9vw,120px) 0}
 header.site{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdrop-filter:saturate(1.2) blur(10px);-webkit-backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid var(--line)}
 .bar{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:80px}
 .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--navy)}
-.logo img{width:52px;height:52px;flex:none;object-fit:contain}
+.logo img{height:46px;width:auto;flex:none;object-fit:contain}
+footer .logo img{height:60px}
 .logo span{font:400 22px/1 var(--serif);letter-spacing:.14em;text-transform:uppercase}
 .logo small{display:block;font:500 9px/1.2 var(--sans);letter-spacing:.3em;color:var(--gold-ink);margin-top:4px}
 nav.main ul{display:flex;gap:clamp(14px,1.8vw,28px);list-style:none}
@@ -82,7 +83,7 @@ nav.main a:hover,nav.main a[aria-current="page"]{border-bottom-color:var(--gold)
   .drawer .btn{width:100%;margin-top:14px}
   header.site{z-index:70}
 }
-@media (max-width:480px){.logo{gap:8px}.logo img{width:44px;height:44px}.logo span{font-size:16px}.logo small{display:none}.bar-cta{gap:8px}.bar-cta .btn-primary{padding:10px 12px;font-size:11px;letter-spacing:.08em;white-space:nowrap}}
+@media (max-width:480px){.logo{gap:8px}.logo img{height:30px}footer .logo img{height:48px}.logo small{display:none}.bar-cta{gap:8px}.bar-cta .btn-primary{padding:10px 12px;font-size:11px;letter-spacing:.08em;white-space:nowrap}}
 
 /* Hero */
 .hero{position:relative;background:var(--deep);color:var(--white);overflow:hidden;isolation:isolate}
@@ -398,10 +399,14 @@ fieldset{border:0;min-width:0}
   transform:translate3d(calc(-50% + var(--px)*-40px),calc(var(--py)*-8px - 10.4svh*var(--z1)),0) scale(calc(1 + .1*var(--b0) + 2.1*var(--z1)));
   opacity:calc(1 - min(1, var(--z2)*4))}
 .c-facade{z-index:5;transform-origin:50% 50%;transform:translate3d(calc(var(--px)*-16px),calc(var(--py)*-6px),0) scale(calc(1 + 3.6*var(--z2)));
-  opacity:calc(min(1, var(--z2)*4) * (1 - var(--z3)))}
-.c-floor{z-index:6;opacity:var(--z3);transform:translate3d(calc(var(--px)*-18px),calc(var(--py)*-6px),0) scale(calc(1.18 - .18*var(--z3)));
-  filter:blur(calc(var(--z4)*9px)) brightness(calc(1 - .5*var(--z4)))}
+  opacity:min(1, calc(var(--z2)*4))}
+.c-floor{z-index:6;opacity:min(1, calc(var(--z3)*2.5));transform:translate3d(calc(var(--px)*-18px),calc(var(--py)*-6px),0) scale(calc(1.18 - .18*var(--z3)));
+  filter:blur(calc(var(--z4)*9px)) brightness(calc((.5 + .5*min(1, var(--z3)*2)) * (1 - .5*var(--z4))))}
 @media (max-width:700px){.c-tower{height:80%}}
+/* Optional real footage (MIZAN_CONFIG.cineVideo): scroll-scrubbed, replaces the generated scenes */
+.c-video{display:none;z-index:1;left:0;top:0;width:100%;height:100%;object-fit:cover;filter:blur(calc(var(--z4)*9px)) brightness(calc(1 - .5*var(--z4)))}
+.has-video .c-video{display:block}
+.has-video .c-sky,.has-video .c-far,.has-video .c-mid,.has-video .c-tower,.has-video .c-facade,.has-video .c-floor{display:none}
 
 /* Chamber: strategy plates over the defocused trading floor */
 .chamber{z-index:7;inset:0;display:grid;place-items:center;padding:clamp(70px,10vh,110px) clamp(16px,4vw,48px) 60px;

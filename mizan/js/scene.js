@@ -135,14 +135,11 @@
     ctx.stroke();
     /* the entry window: a lit interior glimpsed through the glass */
     var ew = W * ENTRY.w, eh = H * ENTRY.h, ex = W * ENTRY.x - ew / 2, ey = H * ENTRY.y - eh / 2;
-    ctx.fillStyle = lin(ctx, 0, ey, 0, ey + eh, [[0, "#040a16"], [1, "#0b1e3d"]]); ctx.fillRect(ex, ey, ew, eh);
+    ctx.fillStyle = lin(ctx, 0, ey, 0, ey + eh, [[0, "#010308"], [1, "#050d1c"]]); ctx.fillRect(ex, ey, ew, eh);
     ctx.save(); ctx.beginPath(); ctx.rect(ex, ey, ew, eh); ctx.clip();
     for (var li = 0; li < 5; li++) { ctx.fillStyle = "rgba(255,236,200," + (.85 - li * .12) + ")"; ctx.fillRect(ex + ew * (.1 + li * .02), ey + eh * (.06 + li * .045), ew * (.8 - li * .04), 2 + li * .4); }   /* ceiling light bars */
-    for (var m = 0; m < 14; m++) { var mx = ex + ew * (.06 + (m % 7) * .13), my = ey + eh * (.42 + Math.floor(m / 7) * .22), mw = ew * .1, mh = mw * .6;
-      var gg = ctx.createRadialGradient(mx + mw / 2, my + mh / 2, 0, mx + mw / 2, my + mh / 2, mw);
-      gg.addColorStop(0, m % 3 ? "rgba(80,200,255,.65)" : "rgba(60,230,160,.6)"); gg.addColorStop(1, "rgba(80,200,255,0)");
-      ctx.fillStyle = gg; ctx.fillRect(mx - mw / 2, my - mh / 2, mw * 2, mh * 2); ctx.fillStyle = "#06101f"; ctx.fillRect(mx, my, mw, mh);
-      ctx.fillStyle = m % 3 ? "rgba(90,200,255,.7)" : "rgba(70,230,170,.7)"; ctx.fillRect(mx + 2, my + 2, mw - 4, mh - 4); }
+    var hz = ctx.createRadialGradient(ex + ew / 2, ey + eh * .6, 0, ex + ew / 2, ey + eh * .6, ew * .6);   /* a soft hazy glow, no hard shapes */
+    hz.addColorStop(0, "rgba(150,185,230,.07)"); hz.addColorStop(1, "rgba(150,185,230,0)"); ctx.fillStyle = hz; ctx.fillRect(ex, ey, ew, eh);
     ctx.restore();
     ctx.strokeStyle = "rgba(201,169,106,.9)"; ctx.lineWidth = 5; ctx.strokeRect(ex, ey, ew, eh);
     ctx.fillStyle = lin(ctx, ex, ey, ex + ew, ey + eh, [[0, "rgba(255,255,255,.22)"], [.5, "rgba(255,255,255,0)"]]); ctx.fillRect(ex, ey, ew, eh);     /* glass glare */
@@ -197,12 +194,14 @@
         miniChart(c, i * tw + 10, ty + wh * .06, tw - 20, wh * .09, series[2 + i].slice(-60), i % 2 ? "#ff6b6b" : "#3ddc9a"); }
     }
     function monitor(c, x, y, w, h, ix) {
-      var col = ix % 3 === 0 ? "61,220,154" : ix % 3 === 1 ? "90,190,255" : "255,190,110";
-      var gl = c.createRadialGradient(x + w / 2, y + h / 2, 0, x + w / 2, y + h / 2, w * 1.1); gl.addColorStop(0, "rgba(" + col + ",.35)"); gl.addColorStop(1, "rgba(" + col + ",0)");
-      c.fillStyle = gl; c.fillRect(x - w * .6, y - h * .6, w * 2.2, h * 2.2);
-      c.fillStyle = "#050a14"; c.fillRect(x - 2, y - 2, w + 4, h + 4);
-      c.fillStyle = "rgba(" + col + ",.14)"; c.fillRect(x, y, w, h);
-      miniChart(c, x + 2, y + 2, w - 4, h - 4, series[(ix * 3) % 16].slice(-50), "rgba(" + col + ",.95)", "rgba(" + col + ",.12)");
+      var col = ix % 3 === 0 ? "61,220,154" : ix % 3 === 1 ? "130,180,230" : "255,190,110";
+      c.fillStyle = "#03070f"; c.fillRect(x - 2, y - 2, w + 4, h + 4);                       /* bezel */
+      c.fillStyle = "#050b16"; c.fillRect(x, y, w, h);                                       /* dark screen: no coloured blocks */
+      c.strokeStyle = "rgba(" + col + ",.12)"; c.lineWidth = 1; c.beginPath();
+      for (var g = 1; g < 4; g++) { c.moveTo(x, y + h * g / 4); c.lineTo(x + w, y + h * g / 4); } c.stroke();
+      miniChart(c, x + 3, y + 4, w - 6, h - 8, series[(ix * 3) % 16].slice(-50), "rgba(" + col + ",.9)");
+      var gl = c.createRadialGradient(x + w / 2, y + h * 1.4, 0, x + w / 2, y + h * 1.4, w * .8); gl.addColorStop(0, "rgba(" + col + ",.10)"); gl.addColorStop(1, "rgba(" + col + ",0)");
+      c.fillStyle = gl; c.fillRect(x - w * .4, y + h, w * 1.8, h * 1.2);                       /* faint spill on the desk only */
     }
     function frame(dt) {
       st.t += dt; st.off += dt * 70; st.acc += dt; while (st.acc > .22) { st.acc -= .22; pushTick(); }
