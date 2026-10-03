@@ -604,3 +604,17 @@ header.site{z-index:70}
 @media (max-width:640px){.tb-text{font-size:11.5px;line-height:1.35}.ticker-note{font-size:9.5px}}
 
 @media (max-width:640px){.cine-stage .c-dots{display:none}}
+
+/* Commitments section: icons and company details strip (merged from an edit made on the published preview) */
+.trust-pillars div{padding-top:34px}
+.p-ic{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border:1px solid rgba(201,169,106,.55);border-radius:50%;color:var(--gold);margin-bottom:20px}
+.p-ic svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.trust-pillars h3{margin-bottom:10px}
+.trust-pillars p{line-height:1.7}
+.trust-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin:clamp(40px,5vw,64px) 0 0;padding:26px 30px;border:1px solid var(--line-dark);background:rgba(255,255,255,.035)}
+.trust-strip dt{font-size:13px;letter-spacing:.04em;color:var(--muted-dark);margin-bottom:6px}
+.trust-strip dd{margin:0;font-family:var(--serif);font-size:19px;line-height:1.35;color:var(--white)}
+.trust-strip dd a{color:var(--gold);text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px}
+.trust-strip dd a:hover{color:var(--white)}
+@media (max-width:900px){.trust-strip{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:540px){.trust-strip{grid-template-columns:1fr;padding:22px}}
