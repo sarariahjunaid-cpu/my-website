@@ -82,7 +82,7 @@ nav.main a:hover,nav.main a[aria-current="page"]{border-bottom-color:var(--gold)
   .drawer .btn{width:100%;margin-top:14px}
   header.site{z-index:70}
 }
-@media (max-width:480px){.logo span{font-size:19px}.logo small{display:none}.bar-cta{gap:8px}.bar-cta .btn-primary{padding:10px 12px;font-size:11px;letter-spacing:.08em;white-space:nowrap}}
+@media (max-width:480px){.logo{gap:8px}.logo img{width:44px;height:44px}.logo span{font-size:16px}.logo small{display:none}.bar-cta{gap:8px}.bar-cta .btn-primary{padding:10px 12px;font-size:11px;letter-spacing:.08em;white-space:nowrap}}
 
 /* Hero */
 .hero{position:relative;background:var(--deep);color:var(--white);overflow:hidden;isolation:isolate}
