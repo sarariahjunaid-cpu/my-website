@@ -86,12 +86,12 @@
   <section class="cine" id="cine" aria-labelledby="h-hero">
     <div class="cine-track" id="cineTrack">
       <div class="cine-stage" id="cineStage">
-        <canvas class="layer c-sky" id="pSky" aria-hidden="true"></canvas>
-        <canvas class="layer c-far" id="pFar" aria-hidden="true"></canvas>
-        <canvas class="layer c-mid" id="pMid" aria-hidden="true"></canvas>
-        <canvas class="layer c-tower" id="pTower" width="1400" height="3000" aria-hidden="true"></canvas>
-        <canvas class="layer c-facade" id="pFacade" aria-hidden="true"></canvas>
-        <canvas class="layer c-floor" id="pFloor" aria-hidden="true"></canvas>
+        <div class="c-sky"></div>
+        <div class="c-glow"></div>
+        <svg class="layer c-far" id="cFar" aria-hidden="true"></svg>
+        <div class="layer c-chart" aria-hidden="true"><canvas id="heroCanvas" data-skyline="off"></canvas></div>
+        <svg class="layer c-mid" id="cMid" aria-hidden="true"></svg>
+        <svg class="layer c-tower" id="cTower" aria-hidden="true"></svg>
 
         <div class="layer chamber" id="chamber">
           <div class="chamber-in">
@@ -101,6 +101,9 @@
             <p class="disc" id="chamberDisc"></p>
           </div>
         </div>
+
+        <div class="layer gate gl" aria-hidden="true"></div>
+        <div class="layer gate gr" aria-hidden="true"></div>
 
         <div class="c-type">
           <span class="eyebrow">Mizan Group FZCO<br>Investment Platform</span>
@@ -114,23 +117,21 @@
           <p class="hero-note">Potential returns are not guaranteed. Investing involves risk, including the possible loss of part or all of the invested capital.</p>
         </div>
 
-        <aside class="c-cap a" aria-hidden="true"><small>The city</small><p>Different horizons. One discipline.</p></aside>
-        <aside class="c-cap b" aria-hidden="true"><small>The floor</small><p>Where markets move, we keep a steady hand.</p></aside>
-        <p class="c-illus" aria-hidden="true">Cityscape photographs: illustrative, not Mizan Group projects. Trading screens show simulated data only.</p>
+        <aside class="c-cap" aria-hidden="true"><small>The approach</small><p>Different horizons. One discipline.</p></aside>
+        <p class="c-illus" aria-hidden="true">Illustrative scene. Not a Mizan Group project and not market data.</p>
         <a class="c-skip" href="#/home/choose">Skip intro</a>
         <nav class="c-dots" aria-label="Jump to scene">
           <button type="button" data-beat="0" aria-label="Scene 1: the skyline (key 1)">1</button>
-          <button type="button" data-beat="1" aria-label="Scene 2: the towers (key 2)">2</button>
-          <button type="button" data-beat="2" aria-label="Scene 3: the street canyon (key 3)">3</button>
-          <button type="button" data-beat="3" aria-label="Scene 4: the aerial and the facade (key 4)">4</button>
-          <button type="button" data-beat="4" aria-label="Scene 5: through the window to the trading floor (key 5)">5</button>
-          <button type="button" data-beat="5" aria-label="Scene 6: the strategies (key 6)">6</button>
+          <button type="button" data-beat="1" aria-label="Scene 2: the title leaves (key 2)">2</button>
+          <button type="button" data-beat="2" aria-label="Scene 3: the doors rise (key 3)">3</button>
+          <button type="button" data-beat="3" aria-label="Scene 4: the doors part (key 4)">4</button>
+          <button type="button" data-beat="4" aria-label="Scene 5: the strategies (key 5)">5</button>
         </nav>
-        <div class="ticker" role="region" aria-label="Foreign exchange rates">
-          <div class="ticker-track" id="tickerTrack"></div>
-          <span class="ticker-note" id="tickerNote"></span>
-        </div>
       </div>
+    </div>
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track" id="tickerTrack"></div>
+      <span class="ticker-note">Illustrative animation. Not live or historical market data.</span>
     </div>
   </section>
 
@@ -160,35 +161,13 @@
 
   <section class="s dark" id="clarity" aria-labelledby="h-clar">
     <div class="wrap">
-      <div class="sec-head reveal"><span class="eyebrow">Our commitment to you</span><h2 id="h-clar">Steady by design.</h2><p class="lead">Trust is earned through openness. Before you invest, you will know exactly what you are investing in, what the risks are, and who you are dealing with.</p></div>
-      <div class="pillars trust-pillars reveal">
-        <div>
-          <span class="p-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/><path d="M9 12h7M9 15.5h7M9 19h4"/></svg></span>
-          <h3>Clear terms, up front</h3>
-          <p>For every strategy you can see the minimum investment, how long your money stays invested and the potential returns, written in plain language before you commit.</p>
-        </div>
-        <div>
-          <span class="p-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4v16M7 20h10"/><path d="M4 8h16"/><path d="M6 8l-3 6a3 3 0 0 0 6 0zM18 8l-3 6a3 3 0 0 0 6 0z"/></svg></span>
-          <h3>Honest about risk</h3>
-          <p>All investments carry risk, including the possible loss of the money you invest. We explain each risk openly on a dedicated page, never in the small print.</p>
-        </div>
-        <div>
-          <span class="p-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11"/><path d="M3.5 6l1.5 1.5L7.5 5M3.5 12l1.5 1.5L7.5 11M3.5 18l1.5 1.5L7.5 17"/></svg></span>
-          <h3>A careful, orderly process</h3>
-          <p>Identity and compliance checks come first, then your documents, always in the same order. The process is clear from the first step to the last.</p>
-        </div>
-        <div>
-          <span class="p-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg></span>
-          <h3>A real person to talk to</h3>
-          <p>Speak directly with the Mizan Group team before making any decision, ask anything you need to, and take the time you need.</p>
-        </div>
+      <div class="sec-head reveal"><span class="eyebrow">A structured investment process</span><h2 id="h-clar">Built around clarity.</h2><p class="lead">We would rather show you the terms plainly than ask you to take anything on trust.</p></div>
+      <div class="pillars reveal">
+        <div><h3>Clear terms</h3><p>Minimum investment, duration and potential-return wording are stated up front for every strategy.</p></div>
+        <div><h3>Risk, in plain view</h3><p>Risks are explained on a dedicated page, not hidden in small print.</p></div>
+        <div><h3>Structured onboarding</h3><p>Application, identification and compliance checks, then documentation, in a defined order.</p></div>
+        <div><h3>Personal contact</h3><p>Prospective investors can speak with Mizan Group before they decide.</p></div>
       </div>
-      <dl class="trust-strip reveal" aria-label="Company details">
-        <div><dt>Company</dt><dd>Mizan Group FZCO</dd></div>
-        <div><dt>Registered in</dt><dd>Dubai, United Arab Emirates</dd></div>
-        <div><dt>Company registration no.</dt><dd><span class="ph">[NUMBER]</span></dd></div>
-        <div><dt>Regulatory status</dt><dd><a href="#/disclaimer">Read our regulatory information</a></dd></div>
-      </dl>
     </div>
   </section>
 
@@ -512,9 +491,7 @@
 <script src="js/config.js"></script>
 <script src="js/i18n.js"></script>
 <script src="js/fx.js"></script>
-<script src="js/scene.js"></script>
 <script src="js/cine.js"></script>
 <script src="js/app.js"></script>
-<script src="js/market.js"></script>
 </body>
 </html>

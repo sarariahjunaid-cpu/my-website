@@ -466,6 +466,14 @@
   if (/[?&]dev=1/.test(location.search) || C.DEMO_CONTENT) { var db = $("#devbar"); if (db) db.hidden = false; }
   if (window.console && console.warn) console.warn("[Mizan] LEGAL RECONCILIATION REQUIRED: the Real Estate Investor Information Memorandum still states €50,000 minimum / 15% / 36 months. Current website terms: €25,000 / up to 14% / 3 years. Update the legal documents before public launch.");
 
+  /* ---------- decorative forex ticker (pair names only; no prices) ---------- */
+  (function () {
+    var tk = $("#tickerTrack"); if (!tk) return;
+    var pairs = ["EUR/USD", "XAU/USD", "GBP/USD", "USD/JPY", "USD/CHF", "AUD/USD", "USD/AED", "EUR/GBP"], paths = ["M0 14 L10 8 L20 12 L32 3 L44 10 L54 5 L64 9", "M0 6 L12 11 L22 5 L34 13 L46 7 L56 12 L64 4", "M0 10 L9 14 L21 6 L30 9 L43 2 L54 8 L64 6"];
+    var one = pairs.map(function (p, i) { return '<span class="tk">' + p + '<svg viewBox="0 0 64 18"><path d="' + paths[i % 3] + '" style="animation-delay:' + (i * .35) + 's"/></svg></span>'; }).join("");
+    tk.innerHTML = one + one;
+  })();
+
   /* ---------- luxury interactions: scroll progress, pointer ring, card tilt ---------- */
   (function () {
     var root = document.documentElement, tk = false;
